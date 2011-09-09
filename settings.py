@@ -165,6 +165,7 @@ INSTALLED_APPS = [
     'sitetree',
     'djangoratings',
     'feedback',
+    'robots',
     # Our own apps
     'apps.myshop',
     'apps.myshop.address',
