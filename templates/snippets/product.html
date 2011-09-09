@@ -1,0 +1,33 @@
+{% load thumbnail %}
+{% if product %}
+<div class="brief">
+    <h2 class="title"><a href="{% url product_detail product.slug %}">{{ product }}</a></h2>
+    {% ifnotequal product.rating None %}
+        {% include 'snippets/rating.html' %}
+    {% endifnotequal %}
+    <div class="clearfix"></div>
+    <div class="image">
+        {% if product.logo %}
+            {% thumbnail product.logo.src "150x150" crop="center" as im %}
+                <img src="{{ im.url }}" alt="{{ product.logo.alt }}">
+            {% endthumbnail %}
+        {% endif %}
+    </div>
+    <div class="price">
+        {% block extrainfo %}
+            {% include 'snippets/product_discount.html' %}
+        {% endblock %}
+        <div class="price4now">{{ product.unit_price }}р</div>
+    </div>
+    <div class="buy">
+        <form method="post" action="{% url cart %}">{% csrf_token %}
+            <input type="hidden" name="add_item_id" value="{{ product.pk }}">
+            <input type="hidden" name="add_item_quantity" value="1">
+            <input type="image" src="{{ STATIC_URL }}images/to_buy.jpg">
+        </form>
+    </div>
+    <div class="social_buttons">
+        <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug"></div>
+    </div>
+</div>
+{% endif %}

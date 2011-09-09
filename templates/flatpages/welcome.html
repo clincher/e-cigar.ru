@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block meta-desc %}{{ flatpage.title }}{% endblock %}
+{% block meta-kw %}{{ flatpage.title }}{% endblock %}
+
+{% block content %}
+    <div class="featured">
+        {% with most_discount_product as product %}
+            {% include 'snippets/product.html' %}
+        {% endwith %}
+        {% with most_popular_product as product %}
+            {% include 'snippets/hit_product.html' %}
+        {% endwith %}
+    </div>
+    <div class="clearfix"></div>
+    <div class="text">
+        <h1>{{ flatpage.title }}</h1>
+        {{ flatpage.content|linebreaksbr }}
+    </div>
+{% endblock %}

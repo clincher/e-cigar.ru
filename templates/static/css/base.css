@@ -1,0 +1,515 @@
+/* global reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	padding: 0;
+	border: 0;
+}
+html, body
+{
+	height:100%;
+	min-height: 100%;
+	max-height: 100%;
+}
+
+body{
+	margin:0;
+	min-width:980px;
+	font:12px/18px Arial, Helvetica, sans-serif;
+	color:#000;
+    overflow-y: scroll;
+}
+
+a {color:black;}
+
+img {
+	vertical-align:top;
+	border-style:none;
+}
+
+ul {list-style: none;}
+
+.clearfix {clear: both;}
+
+.wrapper {
+    margin: 0 auto;
+    width: 960px;
+}
+.header {
+	background: url(images/header_bg.png) no-repeat;
+    height: 254px;
+    width: 100%;
+    position: relative;
+}
+
+.header .logo {
+position: absolute;
+right: 430px;
+top:9px;
+}
+
+.header .phone {
+position: absolute;
+right: 10px;
+top: 20px;
+}
+.header #feedback_button {
+    position: absolute;
+    right: 0;
+    top: 55px;
+	text-decoration: underline;
+	font-family: Verdana, sans-serif;
+	font-size: 14px;
+    cursor: pointer;
+}
+.skype_s, .question_mark, .ims .icq {background: url(images/question.jpg) no-repeat;}
+
+.question_mark {
+margin-right:5px;
+height:16px;
+width:16px;
+float: left;
+}
+.skype_s {
+position:relative; top:6px;
+height:26px;
+width:27px;
+background-position: 0 -18px;
+display:inline-block;
+
+}
+.header .social-groups {
+    position: absolute;
+    right: 0;
+    top: 78px;
+}
+.social-groups  i {padding-left:5px;}
+
+.social-groups .facebook,
+.social-groups .mailru,
+.social-groups .vkcom,
+.social-groups .twitter,
+.social-groups .odnoklasniki {background: url(images/head_social.jpg) no-repeat}
+
+.social-groups .facebook {
+float:right;
+width: 34px;
+height: 32px;
+}
+.social-groups .mailru {
+float:right;
+width: 34px;
+height: 32px;
+background-position: -38px 0;
+}
+.social-groups .vkcom {
+float:right;
+width: 34px;
+height: 32px;
+background-position: -78px 0;
+}
+.social-groups .odnoklasniki {
+float:right;
+width: 34px;
+height: 32px;
+background-position:-118px 0;
+}
+.social-groups .twitter {
+float:right;
+width: 34px;
+height: 32px;
+background-position:-156px 0;
+}
+
+.header .ims {
+    position: absolute;
+    right: 10px;
+    top: 120px;
+	font-size:18px;
+}
+
+.ims .icq {
+position:relative; top:6px;
+background-position: 0 -43px;
+height:25px;
+width:25px;
+float:left;
+}
+
+.menu ul {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li,
+.menu ul li a,
+.menu ul li span {float: left;}
+
+.header .menu {
+    position: absolute;
+    top:188px;
+    left: 13px;
+    background: url(images/menu_bg.png) no-repeat;
+}
+
+.header .menu .current {
+    background: url(images/button_active_angle.png) no-repeat 50% 26px;
+}
+
+.header .menu .current .right,
+.header .menu .current .left {
+padding: 3px 0 0 0;
+float: right;
+width: 6px;
+height: 24px;
+background: url(images/button_active_bg.png) no-repeat -6px 3px;
+}
+.header .menu .current .left  {
+float: left;
+background-position: 0 3px;
+}
+
+.header .menu ul {
+float: left;
+height: 40px;
+background: url(images/menu_bg_1px.png) repeat-x;
+padding: 7px 30px 4px;
+}
+
+.header .menu ul li a {padding: 7px 13px 10px;}
+
+.header .menu > .left,
+.header .menu > .right {
+float: left;
+height: 48px;
+width: 5px;
+background: url(images/menu_bg.png) no-repeat;
+}
+.header .menu > .right {
+background-position: -5px 0;
+}
+
+.header .menu ul li span {
+    padding: 7px 30px 10px 30px;
+    background: url(images/button_active_bg_1px.png) 0 3px repeat-x;
+}
+
+.header .menu ul li a {color: white;}
+
+.header .menu ul li a:hover {text-decoration: none;}
+
+.mider {
+    width: 940px;
+    padding: 30px 0 60px;
+}
+
+.leftside-wrapper {
+    float: left;
+    width: 146px;
+    margin-left: 16px;
+    width: 146px;
+}
+.leftside {
+    float: left;
+    width: 100%;
+    border: 1px solid #D9D8D7;
+    border-top:none;
+    border-bottom:none;
+}
+
+.leftside h2 { padding-left: 10px; font-size:15px;}
+
+.leftside ul {padding-left: 20px; list-style: none}
+
+.leftside li a {color: gray;}
+
+.leftside .ammo {margin:8px;}
+
+.top_ls {
+	background: url(images/top_menu.png) no-repeat; 
+	height: 7px;
+    width: 148px;
+}
+
+.leftside-wrapper .footer {
+	background: url(images/foot_menu.png) no-repeat;
+	width: 148px;
+	height: 8px;
+}
+
+.rightside {
+    float: right;
+    width: 160px;
+    text-align:center;
+}
+
+.rightside h2 {
+    font-size:15px;
+    text-decoration:underline;
+}
+
+.rightside .go {
+    background: url(images/backet.png) center top no-repeat;
+    display: block;
+    padding-top: 80px;
+    font-size: 16px;
+    color:black;
+}
+
+.content {
+	margin-left:30px;
+    float: left;
+    width: 555px;
+}
+
+.content .featured {
+    float:left;
+}
+
+.content .featured .brief {
+    padding-left:3px;
+    float:left;
+    width:273px;
+    height:227px;
+    background: url(images/related_bg.png) no-repeat;
+    position: relative;
+}
+
+.brief .title {
+    text-decoration:underline;
+    font-size:18px;
+    padding:8px;
+    float:left;
+    color:black;
+    margin: 0;
+ }
+
+.brief .rate {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 8px;
+    right: 10px;
+}
+
+.brief .image {
+    padding-left: 8px;
+    float:left;
+    width:160px;
+    height: 150px;
+}
+
+.price {
+    float: left;
+    width:100px;
+    position: relative;
+}
+
+.brief .price {height: 140px;}
+
+.old_price {
+    font-size: 17px;
+    position: relative;
+    padding: 5px;
+    text-align: center;
+    width: 61px;
+}
+
+.brief .old_price {top: 20px;}
+
+.old_price img {
+    position:absolute;
+    left: 0;
+    top: 0;
+}
+
+.brief .price .hit {
+    background: url(images/hit.png) no-repeat;
+    height: 50px;
+    width: 55px;
+    position: relative;
+    right: 30px;
+    top: 10px;
+}
+
+.old_price .safe {
+    font-size: 11px;
+    width: 100%;
+}
+
+.price .price4now {
+    font-size: 28px;
+    padding-bottom: 10px;
+}
+
+.brief .price .price4now {
+    position: absolute;
+    top: 100px;
+}
+ 
+.brief .buy {
+    float: left;
+    position: relative;
+    bottom: 10px;
+}
+.brief .social_buttons {float:right;}
+
+.content .text {padding-top: 20px;}
+
+.footer {
+    padding: 5px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+}
+.footer p {
+    margin: 0;
+}
+
+.footer .menu {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    padding: 7px 10px 0;
+}
+
+.footer .menu ul li a,
+.footer .menu ul li span {padding: 5px;}
+.footer .menu ul li:first-child {background:none;}
+.footer .menu ul li {background: url(images/footer_spacer.jpg) 0 50% no-repeat;}
+
+.footer .menu ul li a:hover {text-decoration: none;}
+
+.footer .madein {
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+.footer .copy {
+position: absolute;
+left: 0;
+top: 12px;}
+
+.manufacturer-list li {border-bottom: 1px solid gray;}
+.manufacturer-list .img {
+    float: left;
+    width: 210px;
+}
+.manufacturer-list .desc {
+    float: left;
+    width: 345px;
+}
+
+.notice {
+    border: 1px solid blue;
+    background-color: #add8e6;
+    color: #000000;
+    padding: 15px;
+}
+
+.images, .images img {float: left;}
+.images {
+    width: 150px;
+    margin-right: 20px;
+}
+.images .icon {margin-top: 10px; }
+
+.product-detail .description {
+    float: left;
+    width: 380px;
+}
+
+.product-detail .old_price {
+    float: left;
+    padding-top: 20px;
+}
+
+.product-detail .old_price img {
+    top: 15px;
+}
+
+.product-detail .price {
+    float: left;
+    padding: 20px;
+}
+
+th {text-align: left; width: 150px;}
+
+.product-parameters th {width: 250px;}
+
+h1 {
+    font-size: 1.5em;
+    margin: 0 0 1em;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+.margin-leftside {
+    float: left;
+    width: 200px;
+}
+
+.flavour {
+    float: left;
+    text-align: center;
+    width: 70px;
+}
+
+.product-detail h2 {
+    font-size: 1.2em;
+    margin: 1em 0;
+}
+
+.checkout-link {
+    font-size: 2em;
+    line-height: 2em;
+    color: #a52a2a;
+    cursor: pointer;
+}
+
+textarea {height: 70px;}
+
+#id_ship_name,
+#id_ship_email,
+#id_ship_phone,
+textarea {width: 350px;}
+
+.funny,
+.sad,
+.active,
+.inactive {
+    cursor: pointer;
+    float: right;
+    width: 20px;
+    height: 18px;
+    background: url(images/stars.png) no-repeat;
+}
+
+.sad {background-position: -76px 0;}
+
+.active {background-position: 0 0;}
+
+.inactive {background-position: -77px 0;}
+
+.hint {
+    width: 100px;
+    font-size: 0.8em;
+    text-align: center;
+    display: none;
+}
+
+.hint.voted {display: block;}

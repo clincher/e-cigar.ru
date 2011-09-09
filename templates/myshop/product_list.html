@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="featured">
+    {% for product in object_list %}
+        {% include 'snippets/product.html' %}
+    {% endfor %}
+    </div>
+{% endblock %}

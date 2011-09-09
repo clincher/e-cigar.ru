@@ -1,0 +1,26 @@
+{% load simplevariation_tags  %}
+<div class="price">
+    <div class="price4now">{{ object.unit_price }}р.</div>
+    <form method="post" action="{% url cart %}">{% csrf_token %}
+    {% with option_groups=object|get_option_groups %}
+      {% if option_groups %}
+        <div>
+          <h2>Варианты:</h2>
+          {% for option_group in option_groups %}
+            <label for="add_item_option_group_{{ option_group.id }}">{{ option_group.name }}</label>
+            {% with options=option_group|get_options %}
+              <select name="add_item_option_group_{{ option_group.id }}">
+                {% for option in options %}
+                  <option value="{{ option.id }}">{{ option.name }}</option>
+                {% endfor %}
+              </select>
+            {% endwith %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <input type="hidden" name="add_item_id" value="{{object.id}}">
+    <input type="hidden" name="add_item_quantity" value="1">
+    <input type="image" src="{{ STATIC_URL }}images/to_buy.jpg">
+    </form>
+</div>

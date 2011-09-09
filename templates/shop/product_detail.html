@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block h1 %}
+    {% if object.get_full_name %}Электронная сигарета {{ object.get_full_name|capfirst }}{% else %}{{ object.name|capfirst }}{% endif %}
+{% endblock %}
+{% block title %}
+    купить {% if object.get_full_name %}электронную сигарету {{ object.get_full_name }}{% else %}{{ object.name }}{% endif %}
+{% endblock %}
+
+{% block meta-kw %}{{ object.meta_keywords }}{% endblock %}
+{% block meta-desc %}{{ object.meta_description }}{% endblock %}
+
+{% block body %}
+    {% with object as product %}
+    <div class="product-detail">
+    <div class="images">
+        {% for image in object.images_ordered %}
+            {% if not forloop.counter0 %}
+                {% thumbnail image.src "150x150" crop="center" as im %}
+                    <a rel="prettyPhoto[pp_gal]" href="{{ image.url }}" title="">
+                        <img alt="{{ image.alt }}" src="{{ im.url }}" />
+                    </a>
+                {% endthumbnail %}
+            {% else %}
+                {% thumbnail image.src "50x50" crop="center" as im %}
+                    <a rel="prettyPhoto[pp_gal]" href="{{ image.url }}" title="">
+                        <img alt="{{ image.alt }}" src="{{ im.url }}" class="icon"/>
+                    </a>
+                {% endthumbnail %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="description">
+        {{ object.description }}
+        <div class="clearfix"></div>
+        {% include 'snippets/price.html' %}
+        {% include 'snippets/product_discount.html' %}
+        <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug"></div>
+    </div>
+    <div class="clearfix"></div>
+    {% if product.flavours.all|length %}
+    <div class="flavours">
+        <h2>Вкусы картриджей:</h2>
+        {% for flavour in product.flavours.all %}
+            {% thumbnail flavour.logo "50x50" crop="center" as im %}
+                <div class="flavour">
+                    <img src="{{ im.url }}" alt="{{ flavour }}" title="{{ flavour }}"/>
+                    {{ flavour }}
+                </div>
+            {% endthumbnail %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    <table class="product-parameters">
+        {% ifnotequal object.service_center None %}
+            <tr>
+                <th>Сервисный центр в Москве</th>
+                <td>{{ object.service_center|yesno:"Да,Нет" }}</td>
+            </tr>
+        {% endifnotequal %}
+        {% if object.manufacturer %}
+        <tr>
+            <th>Производитель</th>
+            <td>{{ object.manufacturer }}</td>
+        </tr>
+        {% endif %}
+        {% if object.default_flavour %}
+        <tr>
+            <th>Вкус по умолчанию</th>
+            <td>{{ object.default_flavour }}</td>
+        </tr>
+        {% endif %}
+        {% if object.length %}
+        <tr>
+            <th>Длина сигареты (см)</th>
+            <td>{{ object.length }}</td>
+        </tr>
+        {% endif %}
+        {% if object.diameter %}
+        <tr>
+            <th>Диаметр сигареты (мм)</th>
+            <td>{{ object.diameter }}</td>
+        </tr>
+        {% endif %}
+        {% if object.weight %}
+        <tr>
+            <th>Вес сигареты (гр)</th>
+            <td>{{ object.weight }}</td>
+        </tr>
+        {% endif %}
+        {% if object.conditional_number %}
+        <tr>
+            <th>Условное количество обычных сигарет</th>
+            <td>{{ object.conditional_number }}</td>
+        </tr>
+        {% endif %}
+        {% if object.battery_capacity %}
+        <tr>
+            <th>Ёмкость аккумулятора</th>
+            <td>{{ object.battery_capacity }}</td>
+        </tr>
+        {% endif %}
+        {% if object.full_recharge %}
+        <tr>
+            <th>Время полной зарядки аккумулятора</th>
+            <td>{{ object.full_recharge }}</td>
+        </tr>
+        {% endif %}
+        {% if object.color %}
+        <tr>
+            <th>Цвет сигареты</th>
+            <td>{{ object.color }}</td>
+        </tr>
+        {% endif %}
+    </table>
+    {% include 'snippets/price.html' %}
+    {% include 'snippets/product_discount.html' %}
+    <div class="clearfix"></div>
+    {% if product.get_full_name %}
+    <h2>С этой электронной сигаретой покупают:</h2>
+    <div class="featured">
+        {% with object.cartridge as product %}
+        {% include 'snippets/product.html' %}
+    {% endwith %}
+    {% for product in object.accessories.all %}
+        {% include 'snippets/product.html' %}
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}

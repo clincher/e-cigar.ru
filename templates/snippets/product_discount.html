@@ -1,0 +1,6 @@
+{% if product.discount > 0 %}
+<div class="old_price">
+    {{ product.old_price }}р<img src="{{ STATIC_URL }}images/cros_price.png">
+    <div class="safe">экономия<br/> {{ product.discount }}р</div>
+</div>
+{% endif %}

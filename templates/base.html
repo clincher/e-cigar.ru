@@ -1,0 +1,100 @@
+{% load sitetree shop_tags %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{% block title %}{{ object.title }}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/prettyPhoto.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/feedback.css" media="screen"/>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo"><img src="{{ STATIC_URL }}images/logo.png" alt="e-cigar.ru"></div>
+            <div class="phone"><img src="{{ STATIC_URL }}images/numb.png" alt="+7 (495) 973-96-88"></div>
+            <div id="feedback_button">
+                <i class="question_mark"></i>Есть вопрос? Напишите нам!
+            </div>
+            <div class="social-groups">
+                <noindex>
+                <a rel="nofollow,noindex" href="//twitter.com/#!/e-cigar_ru"><i class="twitter"></i></a>
+				<a rel="nofollow,noindex" href="//odnoklassniki.ru/"><i class="odnoklasniki"></i></a>
+				<a rel="nofollow,noindex" href="//vk.com/"><i class="vkcom"></i></a>
+				<a rel="nofollow,noindex" href="//mail.ru/"><i class="mailru"></i></a>
+				<a rel="nofollow,noindex" href="//fb.com/"><i class="facebook"></i></a>
+                </noindex>
+            </div>
+            <div class="ims">
+                <i class="icq"></i>267924741
+                <a class="skype" href="skype:e-cigar?call"><i class="skype_s"></i>e-cigar</a>
+            </div>
+            <div class="menu">
+                <i class="left"></i>
+                {% sitetree_menu from "topmenu" include "trunk,mainpage" %}
+                <i class="right"></i>
+            </div>
+        </div>
+        <div class="mider">
+            {% block leftside %}
+            <div class="leftside-wrapper">
+            <div class="top_ls"></div>
+            <div class="leftside">
+                <h2>Каталог</h2>
+                <ul class="cigarettes-manufacturers-menu">
+                    {% for object in manufacturers %}
+                    <li>{% ifequal object manufacturer %}
+                        {{ object.name }}
+                        {% else %}
+                        <a href="{% url manufacturer_product_list object.slug %}">{{ object.name }}</a>
+                        {% endifequal %}
+                        от {{ object.min_price|floatformat:"0"|default:"0" }}р
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h2>Картриджи</h2>
+                <a href="{% url cartridge_list %}">
+                    <img class="ammo" src="{{ STATIC_URL }}images/ammo_pack.png">
+                </a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="footer"></div>
+            </div>
+            {% endblock %}
+            <div class="content">
+                {% block content %}
+                <h1>{% block h1 %}{{ object.title }}{% endblock %}</h1>
+                <div class="body">
+                    {% block body %}
+                    {{ object.content|linebreaksbr }}
+                    {% endblock %}
+                </div>
+                {% endblock %}
+            </div>
+            <div class="rightside">
+                {% block rightside %}
+                    {% cart %}
+                {% endblock %}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="footer">
+            <div class="copy">
+                <p>&copy; E-cigar.ru</p>
+                <p>Все права защищены</p>
+            </div>
+            <div class="menu">
+                {% sitetree_menu from "topmenu" include "trunk" %}
+            </div>
+            <div class="madein">Сделано в <a rel="noindex" href="http://pystars.com">pystars.com</a></div>
+        </div>
+    </div>
+    {% include 'feedback/button.html' %}
+    <script type="text/javascript" src="//yandex.st/jquery/1.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/skypeCheck.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
+    <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+</body>
+</html>
