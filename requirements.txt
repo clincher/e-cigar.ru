@@ -11,9 +11,9 @@ django-feedback==0.4
 django-polymorphic==0.2
 django-ratings==0.3.6
 django-robots==0.8.0
-django-shop==0.0.11.dev0
+-e git://github.com/clincher/ecigar-django-shop.git#egg=shop
 django-shop-simplenotifications==0.1.2
--e git://github.com/clincher/django-shop-simplevariations.git@58d4492b54a2f8558c0f77ebd26d8642122c5148#egg=django_shop_simplevariations-0.0.3-py2.7-dev
+-e git://github.com/clincher/django-shop-simplevariations.git#egg=django_shop_simplevariations
 django-sitetree==0.4
 djangocms-utils==0.9.5
 ipython==0.11
