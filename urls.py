@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
-from shop_simplevariations import urls as simplevariations_urls
 
 from apps.myshop import urls as legacy_urls
 
@@ -9,12 +8,14 @@ from apps.myshop import urls as legacy_urls
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^admin/filebrowser/', include('filebrowser.urls')),
+    (r'^tinymce/', include('tinymce.urls')),
+    (r'^grappelli/', include('grappelli.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^feedback/', include('feedback.urls')),
-    url(r'^', include('apps.articles.urls')),
-#    (r'^shop/cart/', include(simplevariations_urls)),
-    (r'^', include(legacy_urls)),
 
+    url(r'^', include('apps.articles.urls')),
+    (r'^', include(legacy_urls)),
 )
 
 if settings.DEBUG:

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Django settings for ecigar project.
 import os
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -74,13 +74,15 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
-
+TINYMCE_JS_URL = os.path.join(STATIC_ROOT, "tiny_mce/tiny_mce.js")
+TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, "tiny_mce")
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
-
+#ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 # Additional locations of static files
+
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'templates/static'),
 )
@@ -150,12 +152,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.flatpages',
     'django.contrib.staticfiles',
     # django-shop apps
-
     'sorl.thumbnail',
     'polymorphic',
     'shop',
@@ -165,11 +168,14 @@ INSTALLED_APPS = [
     'sitetree',
     'djangoratings',
     'feedback',
-    'robots',
+    'tinymce',
+
     # Our own apps
+    'apps.common',
     'apps.myshop',
     'apps.myshop.address',
     'apps.articles',
+    'apps.banners',
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -193,6 +199,13 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
 }
 
 if DEBUG:

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n banners %}
 
 {% block title %}{{ flatpage.title }}{% endblock %}
 {% block meta-desc %}{{ flatpage.title }}{% endblock %}
@@ -14,6 +14,19 @@
             {% include 'snippets/hit_product.html' %}
         {% endwith %}
     </div>
+    <div class="clearfix"></div>
+    {% banner "choice_help" %}
+    <div class="clearfix"></div>
+    <ul class="manufacturer-list">
+    {% for manufacturer in manufacturers %}
+        <li>
+            <div class="img"><img src="{{ MEDIA_URL }}{{ manufacturer.logo }}" alt="{{ manufacturer.name }}"/></div>
+            <h2><a href="{% url manufacturer_product_list manufacturer.slug %}">Электронные сигареты {{ manufacturer.name }}</a></h2>
+            <div class="desc">{{ manufacturer.description }}</div>
+            <div class="clearfix"></div>
+        </li>
+    {% endfor %}
+    </ul>
     <div class="clearfix"></div>
     <div class="text">
         <h1>{{ flatpage.title }}</h1>

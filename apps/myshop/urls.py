@@ -20,7 +20,8 @@ urlpatterns = patterns('',
         name='product_vote'
         ),
     url(r'^kat.html$',
-        ListView.as_view(model=Manufacturer),
+#        ListView.as_view(model=Manufacturer),
+        CigaretteListView.as_view(),
         name='manufacturer_list'
         ),
     url(r'^cartridges.html$',

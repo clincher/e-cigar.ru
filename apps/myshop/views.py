@@ -20,13 +20,16 @@ class CigaretteListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(
             CigaretteListView, self).get_context_data(**kwargs)
-        context['manufacturer'] = Manufacturer.objects.get(
-            slug=self.kwargs['slug'])
+        if 'slug' in self.kwargs:
+            context['manufacturer'] = Manufacturer.objects.get(
+                slug=self.kwargs['slug'])
         return context
 
     def get_queryset(self):
-        return Cigarette.objects.filter(
-            manufacturer__slug=self.kwargs['slug'])
+        filter = dict()
+        if 'slug' in self.kwargs:
+            filter.update(manufacturer__slug=self.kwargs['slug'])
+        return Cigarette.objects.filter(**filter)
 
 
 class MyCheckoutSelectionView(CheckoutSelectionView):
