@@ -316,7 +316,10 @@ background-position: -5px 0;
     position: relative;
 }
 
-.brief .price {height: 140px;}
+.brief .price {
+    height: 140px;
+    padding: 0 !important;
+}
 
 .old_price {
     font-size: 17px;
