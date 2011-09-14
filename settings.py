@@ -140,8 +140,13 @@ SHOP_PAYMENT_BACKENDS = [
     'apps.myshop.payments.backends.pay_with_cash.PayWithCashBackend'
 ]
 SHOP_CART_MODIFIERS = [
-    'shop_simplevariations.cart_modifier.ProductOptionsModifier'
+    'shop_simplevariations.cart_modifier.ProductOptionsModifier',
+    'apps.myshop.modifiers.cigarette_quantity.CigaretteQuantityRebateModifier'
 ]
+
+#dict of depend rebate from total cigarettes quantity
+REBATE_PERCENTAGES = {2: 5, 3: 10, 4: 15}
+
 
 SHOP_ADDRESS_MODEL = 'apps.myshop.address.models.Address'
 

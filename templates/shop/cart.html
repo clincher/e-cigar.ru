@@ -41,13 +41,15 @@
                 value="{{ item.quantity }}"></td>
               <td>{{ item.line_subtotal }} р</td>
             </tr>
-{#            {% for extra_price_field in item.extra_price_fields %}#}
-{#              <tr>#}
-{#                <td colspan="2">&nbsp;</td>#}
-{#                <td>{{ extra_price_field.0 }}</td>#}
-{#                <td>{{ extra_price_field.1 }}</td>#}
-{#              </tr>#}
-{#            {% endfor %}#}
+            {% if item.extra_price_fields.0.1 %}}{# expression for show rebate if it exist #}
+            {% for extra_price_field in item.extra_price_fields %}
+              <tr>
+                <td colspan="2">&nbsp;</td>
+                <td>{{ extra_price_field.0 }}</td>
+                <td>{{ extra_price_field.1 }}</td>
+              </tr>
+            {% endfor %}
+            {% endif %}
 {#            <tr><td colspan="2">&nbsp;</td><td>{% trans "Line Total" %}:</td><td>{{item.line_total}} р</td></tr>#}
           {% endfor %}
         </tbody>
