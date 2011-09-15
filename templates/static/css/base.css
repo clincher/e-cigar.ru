@@ -455,6 +455,7 @@ top: 12px;}
 .product-detail .old_price {
     float: left;
     padding-top: 20px;
+    background-position: center 15px;
 }
 
 .product-detail .old_price img {
@@ -464,6 +465,7 @@ top: 12px;}
 .product-detail .price {
     float: left;
     padding: 20px;
+    text-align: center;
 }
 
 th {text-align: left; width: 150px;}

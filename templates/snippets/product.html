@@ -17,7 +17,7 @@
         {% block extrainfo %}
             {% include 'snippets/product_discount.html' %}
         {% endblock %}
-        <div class="price4now">{{ product.unit_price }}р</div>
+        <div class="price4now">{{ product.unit_price }} р</div>
     </div>
     <div class="buy">
         <form method="post" action="{% url cart %}">{% csrf_token %}

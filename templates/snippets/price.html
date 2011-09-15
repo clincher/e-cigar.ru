@@ -1,6 +1,6 @@
 {% load simplevariation_tags  %}
 <div class="price">
-    <div class="price4now">{{ object.unit_price }}р.</div>
+    <div class="price4now">{{ object.unit_price }} р</div>
     <form method="post" action="{% url cart %}">{% csrf_token %}
     {% with option_groups=object|get_option_groups %}
       {% if option_groups %}
