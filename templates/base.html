@@ -44,11 +44,11 @@
                 <ul class="cigarettes-manufacturers-menu">
                     {% for object in manufacturers %}
                     <li>{% ifequal object manufacturer %}
-                        {{ object.name }}
+                        <span>{{ object.name }}</span>
                         {% else %}
                         <a href="{% url manufacturer_product_list object.slug %}">{{ object.name }}</a>
                         {% endifequal %}
-                        от {{ object.min_price|floatformat:"0"|default:"0" }}р
+                        <i class="price_from">от {{ object.min_price|floatformat:"0"|default:"0" }}р</i>
                     </li>
                     {% endfor %}
                 </ul>

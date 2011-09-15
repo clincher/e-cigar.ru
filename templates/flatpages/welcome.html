@@ -8,7 +8,7 @@
 {% block content %}
     <div class="featured">
         {% with most_discount_product as product %}
-            {% include 'snippets/product.html' %}
+            {% include 'snippets/most_discount.html' %}
         {% endwith %}
         {% with most_popular_product as product %}
             {% include 'snippets/hit_product.html' %}

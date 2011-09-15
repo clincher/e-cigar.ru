@@ -154,7 +154,10 @@ float:left;
 
 .menu ul li,
 .menu ul li a,
-.menu ul li span {float: left;}
+.menu ul li span {
+    float: left;
+    font-size: 1.05em;
+}
 
 .header .menu {
     position: absolute;
@@ -211,7 +214,7 @@ background-position: -5px 0;
 
 .mider {
     width: 940px;
-    padding: 30px 0 60px;
+    padding: 0 0 60px;
 }
 
 .leftside-wrapper {
@@ -288,11 +291,12 @@ background-position: -5px 0;
 
 .brief .title {
     text-decoration:underline;
-    font-size:18px;
     padding:8px;
     float:left;
-    color:black;
+    color: #333;
     margin: 0;
+    font-weight: normal;
+    font-size: 1.2em;
  }
 
 .brief .rate {
@@ -326,14 +330,15 @@ background-position: -5px 0;
     position: relative;
     padding: 5px;
     text-align: center;
-    width: 61px;
+    width: 90px;
+    background:  url(images/cros_price.png) center top no-repeat;
 }
 
 .brief .old_price {top: 20px;}
 
 .old_price img {
     position:absolute;
-    left: 0;
+    left: 15px;
     top: 0;
 }
 
@@ -349,26 +354,38 @@ background-position: -5px 0;
 .old_price .safe {
     font-size: 11px;
     width: 100%;
+    line-height: 3em;
+    color: #666;
 }
 
 .price .price4now {
-    font-size: 28px;
+    font-size: 24px;
     padding-bottom: 10px;
+    color: #191970;
+    font-weight: bold;
 }
 
 .brief .price .price4now {
     position: absolute;
     top: 100px;
+    width: 100px;
+    text-align: center;
 }
  
 .brief .buy {
     float: left;
     position: relative;
     bottom: 10px;
+    text-align: center;
+    width: 100px;
 }
 .brief .social_buttons {float:right;}
 
-.content .text {padding-top: 20px;}
+.content .text {
+    padding-top: 20px;
+    color: #666;
+    font-size: 1.1em;
+}
 
 .footer {
     padding: 5px;
@@ -412,6 +429,8 @@ top: 12px;}
 .manufacturer-list .desc {
     float: left;
     width: 345px;
+    color: #666;
+    font-size: 1.1em;
 }
 
 .notice {
@@ -454,12 +473,16 @@ th {text-align: left; width: 150px;}
 h1 {
     font-size: 1.5em;
     margin: 0 0 1em;
+    color: #333;
 }
 
 h2 {
     font-size: 1.2em;
     margin-bottom: 0;
+    color: #333;
 }
+
+h2 a {color: #333;}
 
 .margin-leftside {
     float: left;
@@ -516,3 +539,12 @@ textarea {width: 350px;}
 }
 
 .hint.voted {display: block;}
+
+.cigarettes-manufacturers-menu li a,
+.cigarettes-manufacturers-menu li span {font-size:1.3em; line-height: 1.75em;}
+
+.cigarettes-manufacturers-menu li span {color: #006400;}
+
+.price_from {color: red; font-size: 0.9em;}
+
+.add-info {padding: 10px; color: #3399ff;}
