@@ -25,7 +25,7 @@ html, body
 body{
 	margin:0;
 	min-width:980px;
-	font:12px/18px Arial, Helvetica, sans-serif;
+	font:12px/18px Verdana, Tahoma, sans-serif;
 	color:#000;
     overflow-y: scroll;
 }
@@ -68,7 +68,7 @@ top: 20px;
     right: 0;
     top: 55px;
 	text-decoration: underline;
-	font-family: Verdana, sans-serif;
+	font-family: Verdana, Tahoma, sans-serif;
 	font-size: 14px;
     cursor: pointer;
 }

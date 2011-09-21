@@ -234,3 +234,5 @@ if DEBUG:
     INSTALLED_APPS += ['debug_toolbar',]
     
     STATICFILES_DIRS += (os.path.join(PROJECT_DIR, 'media'),)
+
+from local_settings import *
