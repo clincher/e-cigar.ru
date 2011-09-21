@@ -52,8 +52,8 @@ class Cigarette(BaseProduct):
                                    decimal_places=2, default=0.0)
     manufacturer = models.ForeignKey(Manufacturer, verbose_name=u'Производитель')
     default_flavour = models.ForeignKey(Flavour, verbose_name=u'Вкус по умолчанию')
-    cartridge = models.OneToOneField(Cartridge, verbose_name=u'Картридж',
-                                     related_name='cigarette')
+    cartridge = models.ForeignKey(Cartridge, verbose_name=u'Картридж',
+                                     related_name='cigarettes')
     length = models.PositiveIntegerField(verbose_name=u'Длина в сантиметрах',
                                          null=True, blank=True)
     diameter = models.PositiveIntegerField(verbose_name=u'Диаметр в миллиметрах',
