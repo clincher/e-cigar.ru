@@ -550,3 +550,8 @@ textarea {width: 350px;}
 .price_from {color: red; font-size: 0.9em;}
 
 .add-info {padding: 10px; color: #3399ff;}
+
+.product-parameters {
+    width: 100%;
+    background: #f0e68c;
+}
