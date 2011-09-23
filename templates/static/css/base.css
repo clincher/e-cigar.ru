@@ -330,11 +330,15 @@ background-position: -5px 0;
     position: relative;
     padding: 5px;
     text-align: center;
-    width: 90px;
+    width: 100px;
     background:  url(images/cros_price.png) center top no-repeat;
 }
 
-.brief .old_price {top: 20px;}
+.brief .old_price {
+    position: absolute;
+    left: -10px;
+    top: 20px;
+}
 
 .old_price img {
     position:absolute;
@@ -495,6 +499,7 @@ h2 a {color: #333;}
     float: left;
     text-align: center;
     width: 70px;
+    padding-bottom: 20px;
 }
 
 .product-detail h2 {

@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
 from django.db.models.aggregates import Count, Min
 from shop.models import ORDERITEM_MODEL, PRODUCT_MODEL
 from shop.util.loader import load_class
@@ -13,9 +14,12 @@ def manufacturers(request):
 def most_popular_product(request):
     OrderItem = load_class(ORDERITEM_MODEL)
     Product = load_class(PRODUCT_MODEL)
+    cigarette_contenttype = ContentType.objects.get_for_model(Cigarette)
     if OrderItem.objects.exists():
-        most_popular_product_id = OrderItem.objects.values('product').annotate(
-            count=Count('id')).order_by('-count')[0]['product']
+        most_popular_product_id = (OrderItem.objects.
+            filter(product__polymorphic_ctype=cigarette_contenttype).
+            values('product').annotate(count=Count('id')).
+            order_by('-count')[0]['product'])
         most_popular_product = Product.objects.get(pk=most_popular_product_id)
     else :
         most_popular_product = None
