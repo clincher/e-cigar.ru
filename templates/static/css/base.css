@@ -188,6 +188,7 @@ float: left;
 height: 40px;
 background: url(images/menu_bg_1px.png) repeat-x;
 padding: 7px 30px 4px;
+width: 877px;
 }
 
 .header .menu ul li a {padding: 7px 13px 10px;}
@@ -550,7 +551,7 @@ textarea {width: 350px;}
 .cigarettes-manufacturers-menu li a,
 .cigarettes-manufacturers-menu li span {font-size:1.3em; line-height: 1.75em;}
 
-.cigarettes-manufacturers-menu li span {color: #006400;}
+.cigarettes-manufacturers-menu li span {color: #191970;}
 
 .price_from {color: red; font-size: 0.9em;}
 
