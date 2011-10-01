@@ -188,6 +188,7 @@ float: left;
 height: 40px;
 background: url(images/menu_bg_1px.png) repeat-x;
 padding: 7px 30px 4px;
+width: 877px;
 }
 
 .header .menu ul li a {padding: 7px 13px 10px;}
