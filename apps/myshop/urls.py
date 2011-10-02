@@ -1,4 +1,3 @@
-
 #-*- coding: utf-8 -*-
 from django.conf.urls.defaults import patterns, include, url
 from django.views.generic import ListView
@@ -7,7 +6,6 @@ from shop.views.checkout import ThankYouView, ShippingBackendRedirectView,\
 from shop.views.order import OrderListView, OrderDetailView
 from shop.views.product import ProductDetailView
 
-from apps.myshop.models import Manufacturer
 from apps.myshop.models import Cartridge, Accessory
 from apps.myshop.views import CigaretteListView, MyCheckoutSelectionView,\
     ProductVoteView
@@ -20,7 +18,6 @@ urlpatterns = patterns('',
         name='product_vote'
         ),
     url(r'^kat.html$',
-#        ListView.as_view(model=Manufacturer),
         CigaretteListView.as_view(),
         name='manufacturer_list'
         ),

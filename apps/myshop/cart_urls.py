@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, url
 
-from .views import MySimplevariationCartDetails
+from views import MySimplevariationCartDetails
 
 
 urlpatterns = patterns('',

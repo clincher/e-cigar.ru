@@ -43,17 +43,25 @@ class MyCheckoutSelectionView(CheckoutSelectionView):
             shipping_address = shipping_form.save()
             order = self.create_order_object_from_cart()
 
-            self.save_addresses_to_order(order, shipping_address, shipping_address)
+            self.save_addresses_to_order(order, shipping_address,
+                                         shipping_address)
 
             assign_address_to_request(self.request, shipping_address)
-            assign_address_to_request(self.request, shipping_address, shipping=False)
+            assign_address_to_request(self.request, shipping_address,
+                                      shipping=False)
 
-            billingshipping_form = self.get_billing_and_shipping_selection_form()
+            billingshipping_form = (
+                self.get_billing_and_shipping_selection_form())
             if billingshipping_form.is_valid():
-                self.request.session['payment_backend'] = billingshipping_form.cleaned_data['payment_method']
-                self.request.session['shipping_backend'] = billingshipping_form.cleaned_data['shipping_method']
+                self.request.session['payment_backend'] = (
+                    billingshipping_form.cleaned_data['payment_method'])
+                self.request.session['shipping_backend'] = (
+                    billingshipping_form.cleaned_data['shipping_method'])
                 payment_instructions_email_notification(
-                    order=order, address=shipping_address, request=self.request)
+                    order=order,
+                    address=shipping_address,
+                    request=self.request
+                )
                 return HttpResponseRedirect(reverse('checkout_shipping'))
 
         return self.get(self, *args, **kwargs)
@@ -95,7 +103,8 @@ class MySimplevariationCartDetails(SimplevariationCartDetails):
                 text__in=text_option_ids.values()
                 )
 
-            if len(cartitemoptions) + len(cartitemtxtoptions) == (len(option_ids) + len(text_option_ids)):
+            if (len(cartitemoptions) + len(cartitemtxtoptions)
+                == (len(option_ids) + len(text_option_ids))):
                 found_cartitem_id = cartitem.id
                 merge = True
                 break
@@ -117,6 +126,7 @@ class MySimplevariationCartDetails(SimplevariationCartDetails):
 
         cart_object.save()
         return self.post_success(product, cart_item)
+
 
 class ProductVoteView(JSONResponseMixin, TemplateView):
     def get(self, request, *args, **kwargs):

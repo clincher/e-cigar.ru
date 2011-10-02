@@ -3,8 +3,6 @@ from decimal import Decimal
 
 from django.conf import settings
 from django.conf.urls.defaults import patterns, url
-from django.shortcuts import render_to_response
-from django.template import RequestContext
 
 from shop.util.decorators import on_method, shop_login_required
 
@@ -17,7 +15,6 @@ class PickupShipping(object):
     url_namespace = 'pickup_process'
     backend_name = u'Самовывоз'
     
-
     def __init__(self, shop):
         self.shop = shop # This is the shop reference, it allows this backend
         # to interact with it in a tidy way (look ma', no imports!)
@@ -38,18 +35,6 @@ class PickupShipping(object):
                                      Decimal(self.rate))
         return self.shop.finished(self.shop.get_order(request))
         # That's an HttpResponseRedirect
-
-#    @on_method(shop_login_required)
-#    def view_display_fees(self, request):
-#        """
-#        A simple, normal view that displays a template showing how much the
-#        shipping will be (it's an example, alright)
-#        """
-#        ctx = {}
-#        ctx.update({'shipping_costs':Decimal(self.rate)})
-#        return render_to_response('shop/shipping/flat_rate/display_fees.html', ctx,
-#                                  context_instance=RequestContext(request))
-
 
     def get_urls(self):
         """

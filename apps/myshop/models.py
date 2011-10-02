@@ -3,8 +3,8 @@ from django.conf import settings
 from django.db import models
 from shop.order_signals import completed
 from djangoratings.fields import AnonymousRatingField
-from apps.myshop.base.models import BaseProductParameter, BaseProduct, BaseProductImage
 
+from apps.myshop.base.models import BaseProductParameter, BaseProduct, BaseProductImage
 from signals import confirmed_email_notification
 
 

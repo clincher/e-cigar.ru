@@ -9,28 +9,37 @@ from apps.myshop.models import Cigarette
 
 class CigaretteQuantityRebateModifier(BaseCartModifier):
 
-    def rebate_calculate(self, cart_item, rebate_percentage):
-        return (Decimal(rebate_percentage)/100) * cart_item.line_subtotal
-
     def get_extra_cart_item_price_field(self, cart_item):
         """
-        Add a rebate to a cigarette depending on the quantity cigarettes ordered:
+        Add a rebate to a cigarette depending on quantity ordered cigarettes
         """
-        REBATE_PERCENTAGES = settings.REBATE_PERCENTAGES
+
+        if not isinstance(cart_item.product, Cigarette):
+            return None
+
         cigarette_ordered_count = sum([item.quantity
             for item in cart_item.cart.items.all()
             if isinstance(item.product, Cigarette)
         ])
+        
+        if not cigarette_ordered_count:
+            return None
 
-        if cigarette_ordered_count in REBATE_PERCENTAGES.keys():
-            rebate_percentage = REBATE_PERCENTAGES[cigarette_ordered_count]
-            rebate = self.rebate_calculate(cart_item, rebate_percentage)
-            result_tuple = ('Скидка', -rebate)
-        elif cigarette_ordered_count > 1:
-            rebate_percentage = REBATE_PERCENTAGES[
-                                max(REBATE_PERCENTAGES.keys())]
-            rebate = self.rebate_calculate(cart_item, rebate_percentage)
-            result_tuple = ('Скидка', -rebate)
-        else :
-            result_tuple = None
-        return result_tuple # Returning None is ok
+        template = u'Скидка за покупку {0} сигарет {1}%'
+        rebate_percentage = self.get_rebate_percentage(cigarette_ordered_count)
+        rebate = self.get_rebate_by_cigarette_count(
+            cart_item, rebate_percentage)
+
+        return template.format(
+            cigarette_ordered_count, rebate_percentage), -rebate
+
+    def get_rebate_percentage(self, count):
+        REBATES = settings.REBATE_PERCENTAGES
+        try:
+            return REBATES[count]
+        except KeyError:
+            return REBATES[max(REBATES.keys())]
+
+    def get_rebate_by_cigarette_count(self, cart_item, rebate_percentage):
+        # rebate calculate
+        return (Decimal(rebate_percentage)/100) * cart_item.line_subtotal

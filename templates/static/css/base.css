@@ -564,3 +564,18 @@ textarea {width: 350px;}
 }
 
 .leftflated {float: left;}
+
+.cart {padding-top: 10px;}
+
+.cart .nonzero-quantity {font-size: 1.1em;}
+.cart .zero-quantity {color: #666;}
+.cart input[type=text] {width: 50px;}
+.cart .nonzero-quantity .product-name-cell {font-weight: bold;}
+.cart .summary-cell {width: 110px;}
+.cart .quantity-cell {width: 105px;}
+.cart .unit-price-cell {width: 90px;}
+.cart .product-name-cell {width: 300px;}
+.cart .order-item td, .cart .order-item th {
+    border-top: 1px solid #ccc;
+    padding: 3px 0;
+}
