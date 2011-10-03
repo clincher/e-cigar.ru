@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Django settings for ecigar project.
 import os
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 
