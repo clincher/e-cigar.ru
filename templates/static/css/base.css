@@ -238,7 +238,15 @@ background-position: -5px 0;
 
 .leftside li a {color: gray;}
 
-.leftside .ammo {margin:8px;}
+.leftside .ammo {
+    margin: 8px;
+    cursor: pointer;
+}
+
+.leftside h2 a {
+    cursor: text;
+    text-decoration: none;
+}
 
 .top_ls {
 	background: url(images/top_menu.png) no-repeat; 
@@ -313,6 +321,7 @@ background-position: -5px 0;
     float:left;
     width:160px;
     height: 150px;
+    cursor: pointer;
 }
 
 .price {
@@ -575,7 +584,10 @@ textarea {width: 350px;}
 .cart .quantity-cell {width: 105px;}
 .cart .unit-price-cell {width: 90px;}
 .cart .product-name-cell {width: 300px;}
-.cart .order-item td, .cart .order-item th {
+
+.cart .order-item td,
+.cart .order-item th {
     border-top: 1px solid #ccc;
     padding: 3px 0;
 }
+

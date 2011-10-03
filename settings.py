@@ -4,17 +4,8 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('Vasiliy Bolshakov', 'va.bolshakov@gmail.com'),
-)
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
-
-SN_FROM_EMAIL = 'va.bolshakov@gmail.com'
-MANAGERS = ADMINS
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'va.bolshakov@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

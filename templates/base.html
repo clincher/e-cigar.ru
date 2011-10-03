@@ -18,9 +18,9 @@
             </div>
             <div class="social-groups">
                 <noindex>
-                <a rel="nofollow,noindex" href="//twitter.com/#!/e-cigar_ru"><i class="twitter"></i></a>
+                <a rel="nofollow,noindex" href="//twitter.com/#!/e_cigar_ru"><i class="twitter"></i></a>
 				<a rel="nofollow,noindex" href="//odnoklassniki.ru/"><i class="odnoklasniki"></i></a>
-				<a rel="nofollow,noindex" href="//vk.com/"><i class="vkcom"></i></a>
+				<a rel="nofollow,noindex" href="//vk.com/e-cigar"><i class="vkcom"></i></a>
 				<a rel="nofollow,noindex" href="//mail.ru/"><i class="mailru"></i></a>
 				<a rel="nofollow,noindex" href="//fb.com/"><i class="facebook"></i></a>
                 </noindex>
@@ -52,10 +52,10 @@
                     </li>
                     {% endfor %}
                 </ul>
-                <h2>Картриджи</h2>
-                <a href="{% url cartridge_list %}">
-                    <img class="ammo" src="{{ STATIC_URL }}images/ammo_pack.png">
-                </a>
+                <h2><a href="{% url cartridge_list %}">Картриджи</a></h2>
+                <img class="ammo" src="{{ STATIC_URL }}images/ammo_pack.png">
+                <h2><a href="{% url accessory_list %}">Аксессуары</a></h2>
+                <img class="ammo" src="{{ STATIC_URL }}images/accessories.png">
             </div>
             <div class="clearfix"></div>
             <div class="footer"></div>

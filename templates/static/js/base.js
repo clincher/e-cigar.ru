@@ -1,3 +1,4 @@
+
 var feedback = {};
 feedback.init = function(config) {
     if (!(config.button && config.drop && config.popup))
@@ -84,5 +85,11 @@ $(document).ready(function(){
             },
             'json'
         );
+    });
+    $(".brief .image").click(function(){
+        document.location = $(this).closest(".brief").find("a").first().attr("href");
+    });
+    $(".leftside .ammo").click(function(){
+        document.location = $(this).prev("h2").find("a").first().attr("href");
     });
 });
