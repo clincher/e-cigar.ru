@@ -24,7 +24,7 @@ class CigaretteQuantityRebateModifier(BaseCartModifier):
             if isinstance(item.product, Cigarette)
         ])
         
-        if cigarette_ordered_count < min(REBATES.keyes()):
+        if cigarette_ordered_count < min(REBATES.keys()):
             return None
 
         template = u'Скидка за покупку {0} сигарет {1}%'
