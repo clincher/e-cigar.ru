@@ -6,6 +6,8 @@ from shop.cart.cart_modifiers_base import BaseCartModifier
 
 from apps.myshop.models import Cigarette
 
+REBATES = settings.REBATE_PERCENTAGES
+
 
 class CigaretteQuantityRebateModifier(BaseCartModifier):
 
@@ -22,7 +24,7 @@ class CigaretteQuantityRebateModifier(BaseCartModifier):
             if isinstance(item.product, Cigarette)
         ])
         
-        if not cigarette_ordered_count:
+        if cigarette_ordered_count < min(REBATES.keyes()):
             return None
 
         template = u'Скидка за покупку {0} сигарет {1}%'
@@ -34,7 +36,7 @@ class CigaretteQuantityRebateModifier(BaseCartModifier):
             cigarette_ordered_count, rebate_percentage), -rebate
 
     def get_rebate_percentage(self, count):
-        REBATES = settings.REBATE_PERCENTAGES
+
         try:
             return REBATES[count]
         except KeyError:
