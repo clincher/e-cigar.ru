@@ -117,12 +117,13 @@ class MySimplevariationCartDetails(SimplevariationCartDetails):
 
         cart_item = cart_object.add_product(
             product, product_quantity, merge=merge, queryset=qs)
-        try:
-            cart_object.add_product(product.cartridge, 0)
-            for accessory in product.accessories.all():
-                cart_object.add_product(accessory, 0)
-        except Cartridge.DoesNotExist, AttributeError:
-            pass
+        if isinstance(product, Cigarette):
+            try:
+                cart_object.add_product(product.cartridge, 0)
+                for accessory in product.accessories.all():
+                    cart_object.add_product(accessory, 0)
+            except Cartridge.DoesNotExist, AttributeError:
+                pass
 
         cart_object.save()
         return self.post_success(product, cart_item)
