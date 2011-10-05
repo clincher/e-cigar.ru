@@ -92,4 +92,7 @@ $(document).ready(function(){
     $(".leftside .ammo").click(function(){
         document.location = $(this).prev("h2").find("a").first().attr("href");
     });
+    $(".manufacturer-list img").click(function(){
+        document.location = $(this).parent("div").next("h2").find("a").first().attr("href");
+    });
 });
