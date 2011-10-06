@@ -78,7 +78,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -225,5 +224,8 @@ if DEBUG:
     
     STATICFILES_DIRS += (os.path.join(PROJECT_DIR, 'media'),)
 else:
+    FILES_URL = 'http://files.e-cigar.ru'
+    MEDIA_URL = FILES_URL + MEDIA_URL
+    STATIC_URL = FILES_URL + STATIC_URL
     TEMPLATE_LOADERS = (
         ('django.template.loaders.cached.Loader', TEMPLATE_LOADERS),)
