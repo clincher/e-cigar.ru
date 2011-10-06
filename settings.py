@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-
 # Django settings for ecigar project.
 import os
-DEBUG = False
-TEMPLATE_DEBUG = DEBUG
-
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 DATABASES = {
     'default': {
@@ -204,6 +199,10 @@ TINYMCE_DEFAULT_CONFIG = {
     'custom_undo_redo_levels': 10,
 }
 
+from local_settings import *
+
+TEMPLATE_DEBUG = DEBUG
+
 if DEBUG:
     DEBUG_TOOLBAR_PANELS = (
         'debug_toolbar.panels.version.VersionDebugPanel',
@@ -225,5 +224,6 @@ if DEBUG:
     INSTALLED_APPS += ['debug_toolbar',]
     
     STATICFILES_DIRS += (os.path.join(PROJECT_DIR, 'media'),)
-
-from local_settings import *
+else:
+    TEMPLATE_LOADERS = (
+        ('django.template.loaders.cached.Loader', TEMPLATE_LOADERS))
