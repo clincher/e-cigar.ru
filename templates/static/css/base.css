@@ -296,6 +296,7 @@ background-position: -5px 0;
     height:227px;
     background: url(images/related_bg.png) no-repeat;
     position: relative;
+    margin-bottom: 3px;
 }
 
 .brief .title {
