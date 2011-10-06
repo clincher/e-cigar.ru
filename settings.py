@@ -226,4 +226,4 @@ if DEBUG:
     STATICFILES_DIRS += (os.path.join(PROJECT_DIR, 'media'),)
 else:
     TEMPLATE_LOADERS = (
-        ('django.template.loaders.cached.Loader', TEMPLATE_LOADERS))
+        ('django.template.loaders.cached.Loader', TEMPLATE_LOADERS),)
