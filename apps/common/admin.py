@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
 
+
 class FlatPageAdmin(FlatPageAdminOld):
     class Media:
         js = ('tiny_mce/tiny_mce.js',
