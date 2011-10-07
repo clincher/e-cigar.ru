@@ -32,7 +32,7 @@
         {% endfor %}
     </div>
     <div class="description">
-        {{ object.description }}
+        {{ object.description|linebreaksbr }}
         <div class="clearfix"></div>
         {% include 'snippets/price.html' %}
         {% include 'snippets/product_discount.html' %}
