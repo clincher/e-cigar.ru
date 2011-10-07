@@ -54,5 +54,5 @@ def payment_instructions_email_notification(**kwargs):
     )
     from_email = getattr(settings, 'SN_FROM_EMAIL',
                          settings.DEFAULT_FROM_EMAIL)
-
-    send_mail(subject, body, from_email, [kwargs['address'].email,])
+    recipient_list = list(kwargs['address'].email or '')
+    send_mail(subject, body, from_email, recipient_list)
