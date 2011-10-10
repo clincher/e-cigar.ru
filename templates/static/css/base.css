@@ -72,21 +72,23 @@ top: 20px;
 	font-size: 14px;
     cursor: pointer;
 }
-.skype_s, .question_mark, .ims .icq {background: url(images/question.jpg) no-repeat;}
+.skype_s,
+.question_mark,
+.ims .icq {background: url(images/question.jpg) no-repeat;}
 
 .question_mark {
-margin-right:5px;
-height:16px;
-width:16px;
-float: left;
+    margin-right:5px;
+    height:16px;
+    width:16px;
+    float: left;
 }
 .skype_s {
-position:relative; top:6px;
-height:26px;
-width:27px;
-background-position: 0 -18px;
-display:inline-block;
-
+    position:relative;
+    top:6px;
+    height:26px;
+    width:27px;
+    background-position: 0 -18px;
+    display:inline-block;
 }
 .header .social-groups {
     position: absolute;
