@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404, HttpResponsePermanentRedirect
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
+from django.utils.translation import ugettext as _
 from shop.util.address import assign_address_to_request
 from shop.views.checkout import CheckoutSelectionView
 from shop.models import Product, CartItem
 from shop.util.cart import get_or_create_cart
 from shop_simplevariations.models import CartItemTextOption, CartItemOption
 from shop_simplevariations.views import SimplevariationCartDetails
-from apps.common.views import JSONResponseMixin
 
+from apps.common.views import JSONResponseMixin
 from apps.myshop.models import Cigarette, Manufacturer, Cartridge
 from apps.myshop.signals import payment_instructions_email_notification
 
@@ -21,8 +22,11 @@ class CigaretteListView(ListView):
         context = super(
             CigaretteListView, self).get_context_data(**kwargs)
         if 'slug' in self.kwargs:
-            context['manufacturer'] = Manufacturer.objects.get(
-                slug=self.kwargs['slug'])
+            try:
+                context['manufacturer'] = Manufacturer.objects.get(
+                    slug=self.kwargs['slug'])
+            except Manufacturer.DoesNotExist:
+                pass
         return context
 
     def get_queryset(self):
@@ -30,6 +34,18 @@ class CigaretteListView(ListView):
         if 'slug' in self.kwargs:
             filter.update(manufacturer__slug=self.kwargs['slug'])
         return Cigarette.objects.filter(**filter)
+
+    def get(self, request, *args, **kwargs):
+        self.object_list = self.get_queryset()
+        allow_empty = self.get_allow_empty()
+        if not allow_empty and len(self.object_list) == 0:
+            raise Http404(
+                _(u"Empty list and '%(class_name)s.allow_empty' is False.")
+                          % {'class_name': self.__class__.__name__})
+        context = self.get_context_data(object_list=self.object_list)
+        if 'slug' in self.kwargs and 'manufacturer' not in context:
+            return HttpResponsePermanentRedirect('/')
+        return self.render_to_response(context)
 
 
 class MyCheckoutSelectionView(CheckoutSelectionView):
