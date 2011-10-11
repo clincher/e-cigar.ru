@@ -44,7 +44,7 @@ class CigaretteListView(ListView):
                           % {'class_name': self.__class__.__name__})
         context = self.get_context_data(object_list=self.object_list)
         if 'slug' in self.kwargs and 'manufacturer' not in context:
-            return Http404(u'Страница не найдена')
+            raise Http404(u'Страница не найдена')
         return self.render_to_response(context)
 
 
