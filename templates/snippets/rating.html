@@ -1,7 +1,7 @@
 <div class="rate">
     {% for i in rating_range %}
         <i id="product-{{ product.pk }}-score-{{ forloop.revcounter }}"
-           class="{% if forloop.counter <= product.rating %}funny{% else %}sad{% endif %}"></i>
+           class="{% if forloop.revcounter <= product.rating.get_rating %}funny{% else %}sad{% endif %}"></i>
     {% endfor %}
     <p class="hint" id="hint-for-{{ product.pk }}">дать оценку</p>
 </div>
