@@ -24,6 +24,9 @@ class CigaretteImageInline(ProductImageAdmin):
 
 class CigaretteAdmin(NameSlug):
     inlines = [CigaretteImageInline,]
+    class Media:
+        js = ('tiny_mce/tiny_mce.js',
+              'filebrowser/js/TinyMCEAdmin.js',)
 
 
 class CartridgeImageInline(ProductImageAdmin):
@@ -32,6 +35,9 @@ class CartridgeImageInline(ProductImageAdmin):
 
 class CartridgeAdmin(NameSlug):
     inlines = [CartridgeImageInline,]
+    class Media:
+        js = ('tiny_mce/tiny_mce.js',
+              'filebrowser/js/TinyMCEAdmin.js',)
 
 
 class AccessoryImageInline(ProductImageAdmin):
@@ -40,6 +46,9 @@ class AccessoryImageInline(ProductImageAdmin):
 
 class AccessoryAdmin(NameSlug):
     inlines = [AccessoryImageInline,]
+    class Media:
+        js = ('tiny_mce/tiny_mce.js',
+              'filebrowser/js/TinyMCEAdmin.js',)
 
 
 class FlavourAdmin(NameSlug):

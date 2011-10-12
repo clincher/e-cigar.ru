@@ -12,6 +12,9 @@ class DeliveryInMoscowShipping(object):
     This is just an example of a possible flat-rate shipping module, that
     charges a flat rate defined in settings.SHOP_SHIPPING_FLAT_RATE
     """
+
+    FREE_DELIVERY_AMOUNT = 5000
+
     url_namespace = 'deliveryinmoscow_process'
     backend_name = u'Доставка по Москве'
     
@@ -30,9 +33,15 @@ class DeliveryInMoscowShipping(object):
 
         It calls shop.finished() to go to the next step in the checkout process.
         """
+        order = self.shop.get_order(request)
+        delivery_cost = 0
+        print order.order_subtotal #TODO: remove it
+        if order.order_subtotal < self.FREE_DELIVERY_AMOUNT:
+            delivery_cost = Decimal(self.rate)
+            
         self.shop.add_shipping_costs(self.shop.get_order(request),
                                      u'Доставка по Москве',
-                                     Decimal(self.rate))
+                                     delivery_cost)
         return self.shop.finished(self.shop.get_order(request))
 
     def get_urls(self):

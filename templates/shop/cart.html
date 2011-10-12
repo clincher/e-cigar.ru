@@ -12,10 +12,10 @@
 <h1>{% trans "Your shopping cart" %}</h1>
 {% if cart_items %}
     <div class="notice">
-    {% if cart.total_price < 4000 %}
-        При сумме заказа более 4000 рублей Вас ждет приятный сюрприз - бесплатная доставка!!!
+    {% if cart.total_price < free_delivery_amount %}
+        При сумме заказа более {{ free_delivery_amount }} рублей Вас ждет приятный сюрприз - бесплатная доставка!!!
     {% else %}
-        Ваш заказ больше 4000 рублей - Вас ждет бесплатная доставка!!!
+        Ваш заказ больше {{ free_delivery_amount }} рублей - Вас ждет бесплатная доставка!!!
     {% endif %}
     </div>
     <form method="post" action="{% url cart_update %}">

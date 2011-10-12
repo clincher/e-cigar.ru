@@ -4,6 +4,7 @@
 {% block h1 %}Вся правда об электонных сигаретах{% endblock %}
 
 {% block body %}
+    {% autoescape off %}
     <ul>
     {% for article in article_list %}
         <li>
@@ -12,4 +13,5 @@
         </li>
     {% endfor %}
     </ul>
+    {% endautoescape %}
 {% endblock %}

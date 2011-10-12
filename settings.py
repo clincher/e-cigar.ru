@@ -96,7 +96,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'apps.myshop.context_processors.manufacturers',
     'apps.myshop.context_processors.most_popular_product',
     'apps.myshop.context_processors.most_discount_product',
-    'apps.myshop.context_processors.rating_range'
+    'apps.myshop.context_processors.rating_range',
+    'apps.myshop.context_processors.delivery_in_moscow_backend'
 )
 
 MIDDLEWARE_CLASSES = (

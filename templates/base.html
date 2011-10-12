@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/prettyPhoto.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/feedback.css" media="screen"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="{% block meta-kw %}{{ object.meta_keywords }}{% endblock %}"/>
+    <meta name="description" content="{% block meta-desc %}{{ object.meta_description }}{% endblock %}"/>
 </head>
 <body>
     <div class="wrapper">
@@ -19,10 +22,10 @@
             <div class="social-groups">
                 <noindex>
                 <a rel="nofollow,noindex" href="//twitter.com/#!/e_cigar_ru"><i class="twitter"></i></a>
-				<a rel="nofollow,noindex" href="//odnoklassniki.ru/"><i class="odnoklasniki"></i></a>
-				<a rel="nofollow,noindex" href="//vk.com/e-cigar"><i class="vkcom"></i></a>
-				<a rel="nofollow,noindex" href="//mail.ru/"><i class="mailru"></i></a>
-				<a rel="nofollow,noindex" href="//fb.com/"><i class="facebook"></i></a>
+				<a rel="nofollow,noindex" href="//odnoklassniki.ru/#/group/51895780835426"><i class="odnoklasniki"></i></a>
+				<a rel="nofollow,noindex" href="//vkontakte.ru/club31020314"><i class="vkcom"></i></a>
+				<a rel="nofollow,noindex" href="//my.mail.ru/community/e-cigar.ru/"><i class="mailru"></i></a>
+				<a rel="nofollow,noindex" href="//www.facebook.com/pages/Электронные-сигареты/231170600274546"><i class="facebook"></i></a>
                 </noindex>
             </div>
 {#            <div class="ims">#}
@@ -99,5 +102,6 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
     <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+    <script type="text/javascript" language="JavaScript" src="http://reformal.ru/tabn2v4.js?charset=utf-8"></script>
 </body>
 </html>

@@ -3,3 +3,4 @@
 {% block h1 %}Электронные сигареты {{ manufacturer }}{% endblock %}
 {% block title %}купить электронные сигареты {{ manufacturer }}{% endblock %}
 {% block meta-desc %}{{ manufacturer.meta_description }}{% endblock %}
+{% block meta-kw %}{% if manufacturer %}{{ manufacturer.meta_keywords }}{% else %}{{ manufacturer_product_list|join:"," }}{% endif %}{% endblock %}

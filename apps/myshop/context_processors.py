@@ -3,6 +3,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models.aggregates import Count, Min
 from shop.models import ORDERITEM_MODEL, PRODUCT_MODEL
 from shop.util.loader import load_class
+from apps.myshop.shipping.backends.delivery_in_moscow import \
+    DeliveryInMoscowShipping
 
 from models import Cigarette, Manufacturer
 
@@ -37,3 +39,8 @@ def most_discount_product(request):
 
 def rating_range(request):
     return {'rating_range': range(settings.RATING_RANGE)}
+
+def delivery_in_moscow_backend(request):
+    return {
+        'free_delivery_amount': DeliveryInMoscowShipping.FREE_DELIVERY_AMOUNT
+    }

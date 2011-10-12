@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block meta-kw %}{{ manufacturer_product_list|join:"," }}{% endblock %}
+
 {% block body %}
     <div class="featured">
     {% for product in object_list %}

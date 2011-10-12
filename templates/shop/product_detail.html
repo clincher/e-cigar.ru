@@ -8,9 +8,6 @@
     купить {% if object.get_full_name %}электронную сигарету {{ object.get_full_name }}{% else %}{{ object.name }}{% endif %}
 {% endblock %}
 
-{% block meta-kw %}{{ object.meta_keywords }}{% endblock %}
-{% block meta-desc %}{{ object.meta_description }}{% endblock %}
-
 {% block body %}
     {% with object as product %}
     <div class="product-detail">
@@ -32,7 +29,9 @@
         {% endfor %}
     </div>
     <div class="description">
+        {% autoescape off %}
         {{ object.description|linebreaksbr }}
+        {% endautoescape %}
         <div class="clearfix"></div>
         {% include 'snippets/price.html' %}
         {% include 'snippets/product_discount.html' %}

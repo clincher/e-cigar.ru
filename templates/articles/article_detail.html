@@ -4,8 +4,10 @@
 {% block h1 %}{{ article.title }}{% endblock %}
 
 {% block body %}
+    {% autoescape off %}
     {{ article.short_text|linebreaksbr }}
     <br/>
     <br/>
     {{ article.description|linebreaksbr }}
+    {% endautoescape %}
 {% endblock %}

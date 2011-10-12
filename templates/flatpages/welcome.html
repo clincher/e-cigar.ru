@@ -22,7 +22,9 @@
         <li>
             <div class="img"><img src="{{ MEDIA_URL }}{{ manufacturer.logo }}" alt="{{ manufacturer.name }}"/></div>
             <h2><a href="{% url manufacturer_product_list manufacturer.slug %}">Электронные сигареты {{ manufacturer.name }}</a></h2>
+            {% autoescape off %}
             <div class="desc">{{ manufacturer.description }}</div>
+            {% endautoescape %}
             <div class="clearfix"></div>
         </li>
     {% endfor %}
@@ -30,6 +32,8 @@
     <div class="clearfix"></div>
     <div class="text">
         <h1>{{ flatpage.title }}</h1>
-        {{ flatpage.content|linebreaksbr }}
+        {% autoescape off %}
+            {{ flatpage.content|linebreaksbr }}
+        {% endautoescape %}
     </div>
 {% endblock %}
