@@ -224,6 +224,6 @@ if DEBUG:
 else:
     FILES_URL = 'http://files.e-cigar.ru'
     MEDIA_URL = FILES_URL + MEDIA_URL
-    STATIC_URL = FILES_URL + STATIC_URL
+#    STATIC_URL = FILES_URL + STATIC_URL
     TEMPLATE_LOADERS = (
         ('django.template.loaders.cached.Loader', TEMPLATE_LOADERS),)
