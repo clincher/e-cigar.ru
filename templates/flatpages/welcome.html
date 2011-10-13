@@ -33,7 +33,7 @@
     <div class="text">
         <h1>{{ flatpage.title }}</h1>
         {% autoescape off %}
-            {{ flatpage.content|linebreaksbr }}
+            {{ flatpage.content }}
         {% endautoescape %}
     </div>
 {% endblock %}

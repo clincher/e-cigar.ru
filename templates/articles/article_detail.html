@@ -5,9 +5,9 @@
 
 {% block body %}
     {% autoescape off %}
-    {{ article.short_text|linebreaksbr }}
+    {{ article.short_text }}
     <br/>
     <br/>
-    {{ article.description|linebreaksbr }}
+    {{ article.description }}
     {% endautoescape %}
 {% endblock %}

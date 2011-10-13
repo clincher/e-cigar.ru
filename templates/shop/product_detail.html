@@ -30,7 +30,7 @@
     </div>
     <div class="description">
         {% autoescape off %}
-        {{ object.description|linebreaksbr }}
+        {{ object.description }}
         {% endautoescape %}
         <div class="clearfix"></div>
         {% include 'snippets/price.html' %}
