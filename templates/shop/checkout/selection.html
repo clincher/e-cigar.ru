@@ -23,12 +23,12 @@
                 <th>{{ shipping_address.email.label_tag }}</th>
                 <td>{{ shipping_address.email }}</td>
             </tr>
-            <tr>
-                <th>
-                    <label for="id_{{ billing_shipping_form.shipping_method.html_name }}">Способ доставки:</label>
-                </th>
-                <td>{{ billing_shipping_form.shipping_method }}</td>
-            </tr>
+{#            <tr>#}
+{#                <th>#}
+{#                    <label for="id_{{ billing_shipping_form.shipping_method.html_name }}">Способ доставки:</label>#}
+{#                </th>#}
+{#                <td>{{ billing_shipping_form.shipping_method }}</td>#}
+{#            </tr>#}
             <tr>
                 <th>{{ shipping_address.address.label_tag }}</th>
                 <td>{{ shipping_address.address }}</td>
@@ -40,7 +40,10 @@
             <tr>
                 <th>&nbsp;</th>
                 <td>
-                    <input type="hidden" name="{{ billing_shipping_form.payment_method.html_name }}" value="pay-with-cash"/>
+                    <input type="hidden" name="{{ billing_shipping_form.payment_method.html_name }}"
+                           value="pay-with-cash"/>
+                    <input type="hidden" name="{{ billing_shipping_form.shipping_method.html_name }}"
+                           value="deliveryinmoscow_process"/>
                     <button type="submit" class="checkout-link">Завершить оформление заказа</button>
                 </td>
             </tr>

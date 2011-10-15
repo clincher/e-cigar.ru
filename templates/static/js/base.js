@@ -44,13 +44,13 @@ feedback.closeit = function(config) {
     };
 };
 
-check_shipping_method = function() {
-    if ($("[value='pickup_process']").prop("selected")) {
-        $("#id_ship-address").closest("tr").hide();
-    } else {
-        $("#id_ship-address").closest("tr").show();
-    }
-};
+//check_shipping_method = function() {
+//    if ($("[value='pickup_process']").prop("selected")) {
+//        $("#id_ship-address").closest("tr").hide();
+//    } else {
+//        $("#id_ship-address").closest("tr").show();
+//    }
+//};
 
 $(document).ready(function(){
     $('a [href^="skype"]').click(function(){return skypeCheck()});

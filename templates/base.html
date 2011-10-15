@@ -86,13 +86,13 @@
             <div class="copy">
                 <p>&copy; E-cigar.ru</p>
                 <p>Все права защищены</p>
+                {% include 'snippets/liveinternet.html' %}
             </div>
             <div class="menu">
                 {% sitetree_menu from "topmenu" include "trunk" %}
             </div>
             <div class="madein">
-                <noindex>Сделано в <a rel="noindex" href="http://pystars.com">pystars.com</a></noindex>
-                {% include 'snippets/liveinternet.html' %}
+                <noindex>Сделано в <br/><a rel="noindex" href="http://pystars.com">pystars.com</a></noindex>
             </div>
         </div>
     </div>

@@ -116,7 +116,7 @@ TEMPLATE_DIRS = (
 )
 
 SHOP_SHIPPING_BACKENDS = [
-    'apps.myshop.shipping.backends.pickup.PickupShipping',
+#    'apps.myshop.shipping.backends.pickup.PickupShipping',
     'apps.myshop.shipping.backends.delivery_in_moscow.DeliveryInMoscowShipping',
 ]
 SHOP_PAYMENT_BACKENDS = [
