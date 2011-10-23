@@ -30,7 +30,7 @@ class CigaretteListView(ListView):
         return context
 
     def get_queryset(self):
-        filter = dict()
+        filter = dict(active=True)
         if 'slug' in self.kwargs:
             filter.update(manufacturer__slug=self.kwargs['slug'])
         return Cigarette.objects.filter(**filter)

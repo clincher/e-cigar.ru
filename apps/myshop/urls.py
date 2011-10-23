@@ -22,11 +22,11 @@ urlpatterns = patterns('',
         name='manufacturer_list'
         ),
     url(r'^cartridges.html$',
-        ListView.as_view(model=Cartridge),
+        ListView.as_view(queryset=Cartridge.objects.filter(active=True)),
         name='cartridge_list'
         ),
     url(r'^accessories.html$',
-        ListView.as_view(model=Accessory),
+        ListView.as_view(queryset=Accessory.objects.filter(active=True)),
         name='accessory_list',
         ),
     url(r'^(?P<slug>[0-9A-Za-z-_.//]+).html$',
