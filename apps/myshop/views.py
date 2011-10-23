@@ -147,8 +147,8 @@ class MySimplevariationCartDetails(SimplevariationCartDetails):
 
 class ProductVoteView(JSONResponseMixin, TemplateView):
     def get(self, request, *args, **kwargs):
-        product = Cigarette.objects.get(pk=int(request.GET['product']))
         try:
+            product = Cigarette.objects.get(pk=int(request.GET['product']))
             product.rating.add(int(request.GET['score']), request.user,
                            request.META['REMOTE_ADDR'], request.COOKIES)
         except :
