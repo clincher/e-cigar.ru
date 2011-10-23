@@ -56,9 +56,9 @@ $(document).ready(function(){
     $('a [href^="skype"]').click(function(){return skypeCheck()});
     $("a[rel^='prettyPhoto']").prettyPhoto({theme: 'light_rounded'});
 
-    check_shipping_method();
+//    check_shipping_method();
     
-    $("#id_shipping_method").change(check_shipping_method);
+//    $("#id_shipping_method").change(check_shipping_method);
     feedback.init({
         'button':$('#feedback_button'),
         'drop':$('#feedback_drop'),
@@ -116,4 +116,4 @@ reformal_wdg_cmline  = "#E0E0E0";
 reformal_wdg_glcolor  = "#105895";
 reformal_wdg_tbcolor  = "#FFFFFF";
 reformal_wdg_tcolor_aw4  = "#3F4543";
- reformal_wdg_bimage = "7688f5685f7701e97daa5497d3d9c745.png";
+reformal_wdg_bimage = "7688f5685f7701e97daa5497d3d9c745.png";
