@@ -128,7 +128,7 @@ SHOP_CART_MODIFIERS = [
 ]
 
 #dict of depend rebate from total cigarettes quantity
-REBATE_PERCENTAGES = {2: 5, 3: 10, 4: 15}
+REBATE_PERCENTAGES = {3: 5}
 
 
 SHOP_ADDRESS_MODEL = 'apps.myshop.address.models.Address'
