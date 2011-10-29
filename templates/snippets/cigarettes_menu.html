@@ -1,0 +1,18 @@
+<h2>Каталог</h2>
+<ul class="cigarettes-manufacturers-menu">
+    {% for object in cigarettes %}
+        {% ifchanged object.manufacturer %}
+            <li class="manufacturer">{% ifequal object.manufacturer manufacturer %}
+                <span>{{ object.manufacturer.name }}</span>
+                {% else %}
+                <a href="{% url manufacturer_product_list object.manufacturer.slug %}">{{ object.manufacturer.name }}</a>
+                {% endifequal %}
+            </li>
+        {% endifchanged %}
+        <li class="cigarette">
+            <i class="price_from">{{ object.unit_price|floatformat:"0"|default:"0" }}р</i> - 
+            <a href="{% url product_detail object.slug %}">{{ object.name }}</a>
+        </li>
+
+    {% endfor %}
+</ul>

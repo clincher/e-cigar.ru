@@ -43,18 +43,7 @@
             <div class="leftside-wrapper">
             <div class="top_ls"></div>
             <div class="leftside">
-                <h2>Каталог</h2>
-                <ul class="cigarettes-manufacturers-menu">
-                    {% for object in manufacturers %}
-                    <li>{% ifequal object manufacturer %}
-                        <span>{{ object.name }}</span>
-                        {% else %}
-                        <a href="{% url manufacturer_product_list object.slug %}">{{ object.name }}</a>
-                        {% endifequal %}
-                        <i class="price_from">от {{ object.min_price|floatformat:"0"|default:"0" }}р</i>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {% include 'snippets/cigarettes_menu.html' %}
                 <h2><a href="{% url cartridge_list %}">Картриджи</a></h2>
                 <img class="ammo" src="{{ STATIC_URL }}images/ammo_pack.png">
                 <h2><a href="{% url accessory_list %}">Аксессуары</a></h2>

@@ -13,6 +13,9 @@ def manufacturers(request):
     return {'manufacturers':
         Manufacturer.objects.annotate(min_price=Min('cigarette__unit_price'))}
 
+def cigarettes(request):
+    return {'cigarettes': Cigarette.objects.all()}
+
 def most_popular_product(request):
     OrderItem = load_class(ORDERITEM_MODEL)
     Product = load_class(PRODUCT_MODEL)

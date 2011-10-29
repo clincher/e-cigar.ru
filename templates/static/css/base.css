@@ -236,7 +236,7 @@ background-position: -5px 0;
 
 .leftside h2 { padding-left: 10px; font-size:15px;}
 
-.leftside ul {padding-left: 20px; list-style: none}
+.leftside ul {list-style: none}
 
 .leftside li a {color: gray;}
 
@@ -569,13 +569,25 @@ textarea {width: 350px;}
 .cigarettes-manufacturers-menu li span {
     font-size:1.3em;
     line-height: 1.75em;
+    color: #483d8b;
 }
 
 .cigarettes-manufacturers-menu li span {color: #191970;}
 
+.cigarettes-manufacturers-menu .manufacturer {
+    background: #f0e68c;
+    border: 1px solid #bdb76b;
+    padding-left: 15px;
+}
+.cigarettes-manufacturers-menu .cigarette {
+    font-size: 0.85em;
+    padding-left: 5px;
+}
+
 .price_from {
     color: red;
-    font-size: 0.9em;
+    font-style: normal;
+    /*font-size: 0.9em;*/
 }
 
 .add-info {padding: 10px; color: #3399ff;}
