@@ -1,0 +1,86 @@
+div.hiding {
+    display:none;
+}
+
+#callback_drop {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:black;
+    opacity:.7;
+}
+
+#callback_popup {
+    width:250px;
+    min-height:210px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-125px;
+    margin-left:-175px;
+    background-color:white;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    overflow:visible;
+}
+
+#callback_popup.thanks {
+    font-size: 14px;
+    font-weight: bold;
+    height: 17px !important;
+    min-height: 10px;
+    padding: 10px;
+}
+
+#callback_popup .thanks {
+    display:none;
+}
+
+#callback_popup.thanks .thanks {
+    display:block;
+}
+
+#callback_popup.thanks form {
+    display:none;
+}
+
+#callback_popup form {
+    height:100%;
+    position:absolute;
+    left:10px;
+    right:10px;
+    padding-top:10px;
+}
+
+#callback_popup .error {
+    background-color:red;
+}
+
+#callback_popup .close {
+    position:absolute;
+    top:-18px;
+    right:-18px;
+    width:32px;
+    height:32px;
+    background-image:url(images/close_med.png);
+    z-index:10;
+    cursor:pointer;
+}
+
+/** form stuff **/
+#callback_popup label {
+    font-size:.8em;
+    color:#555;
+    display:block;
+}
+
+#callback_popup textarea {
+    min-height:70px;
+    width:221px;
+}
+
+#callback_popup input {
+    width:223px;
+}

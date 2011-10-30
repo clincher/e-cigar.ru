@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/prettyPhoto.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/feedback.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/callback.css" media="screen"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="keywords" content="{% block meta-kw %}{{ object.meta_keywords }}{% endblock %}"/>
     <meta name="description" content="{% block meta-desc %}{{ object.meta_description }}{% endblock %}"/>
@@ -16,6 +17,7 @@
         <div class="header">
             <div class="logo"><img src="{{ STATIC_URL }}images/logo.png" alt="e-cigar.ru"></div>
             <div class="phone"><img src="{{ STATIC_URL }}images/numb.png" alt="+7 (495) 973-96-88"></div>
+            <div class="callback_button"></div>
             <div id="feedback_button">
                 <i class="question_mark"></i>Есть вопрос? Напишите нам!
             </div>
@@ -86,6 +88,7 @@
         </div>
     </div>
     {% include 'feedback/button.html' %}
+    {% include 'callback/form.html' %}
     {% include 'snippets/yandex_metrika.html' %}
     <script type="text/javascript" src="//yandex.st/jquery/1.6.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.form.js"></script>
@@ -93,6 +96,6 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
     <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-    <script type="text/javascript" language="JavaScript" src="http://reformal.ru/tabn2v4.js?charset=utf-8"></script>
+    <script type="text/javascript" src="http://reformal.ru/tabn2v4.js?charset=utf-8"></script>
 </body>
 </html>

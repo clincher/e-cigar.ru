@@ -1,4 +1,3 @@
-
 var feedback = {};
 feedback.init = function(config) {
     if (!(config.button && config.drop && config.popup))
@@ -44,6 +43,50 @@ feedback.closeit = function(config) {
     };
 };
 
+var callback = {};
+callback.init = function(config) {
+    if (!(config.button && config.drop && config.popup))
+        throw "invalid params";
+    config.popup.find('form.callback').ajaxSubmit({
+        'onstart':function(){
+            config.popup.addClass('loading');
+        },
+        'onend':function(){
+            config.popup.removeClass('loading');
+        },
+        'onerror':function(why){
+            alert('Error! '+why);
+        },
+        'onsuccess':callback.done(config)
+    });
+
+    config.button.click(function(){
+        config.drop.removeClass('hiding');
+        config.popup.removeClass('hiding');
+//        config.popup.find('input[name=username]').focus();
+    });
+    config.popup.find('.close').click(callback.closeit(config));
+};
+
+callback.done = function(config) {
+    return function() {
+        config.popup.addClass('thanks');
+        config.popup.delay(1000).fadeOut(500, callback.closeit(config));
+        config.popup.delay(1000).fadeOut(500);
+    };
+};
+
+callback.closeit = function(config) {
+    return function(){
+        config.drop.addClass('hiding');
+        config.popup.addClass('hiding');
+        config.popup.removeClass('thanks');
+        config.popup.css('display','');
+        config.drop.css('display','');
+//        config.popup.find('input[name=subject]').val('');
+    };
+};
+
 //check_shipping_method = function() {
 //    if ($("[value='pickup_process']").prop("selected")) {
 //        $("#id_ship-address").closest("tr").hide();
@@ -57,13 +100,19 @@ $(document).ready(function(){
     $("a[rel^='prettyPhoto']").prettyPhoto({theme: 'light_rounded'});
 
 //    check_shipping_method();
-    
-//    $("#id_shipping_method").change(check_shipping_method);
     feedback.init({
         'button':$('#feedback_button'),
         'drop':$('#feedback_drop'),
         'popup':$('#feedback_popup')
     });
+
+    callback.init({
+        'button':$('.callback_button'),
+        'drop':$('#callback_drop'),
+        'popup':$('#callback_popup')
+    });
+
+//    $("#id_shipping_method").change(check_shipping_method);
     $(".rate i").mouseover(function(){
         $(this).add($(this).nextAll("i")).addClass("active");
         $(this).prevAll("i").addClass("inactive");

@@ -165,6 +165,7 @@ INSTALLED_APPS = [
     'apps.myshop.address',
     'apps.articles',
     'apps.banners',
+    'apps.callback',
 ]
 
 # A sample logging configuration. The only tangible logging

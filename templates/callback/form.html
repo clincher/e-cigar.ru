@@ -1,0 +1,17 @@
+<div id="callback_drop" class="hiding"></div>
+<div id="callback_popup" class="hiding">
+    <form class="callback" action="/callback/ajax{{ request.path }}" method="post">
+        {% csrf_token %}
+        <div class="username error"> </div>
+        <label for="username">Ваше имя</label>
+            <input type="text" name="username"/>
+        <div class="phone_number error"> </div>
+        <label for="phone_number">Телефон</label>
+            <input type="text" name="phone_number"/>
+        <div class="buttons">
+            <button>Отправить</button>
+        </div>
+    </form>
+    <div class="thanks hiding">Скоро перезвоним!</div>
+    <div class="close"></div>
+</div>
