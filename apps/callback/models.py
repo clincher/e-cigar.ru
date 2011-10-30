@@ -10,4 +10,7 @@ class Callback(models.Model):
 
     def __unicode__(self):
         return u'callback from  {site}: {phone_number}, {username}'.format(
-            self.__dict__)
+            phone_number = self.phone_number,
+            username = self.username,
+            site = self.site.name
+        )

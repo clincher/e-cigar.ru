@@ -17,13 +17,12 @@ def handle_ajax(request, url):
     if not request.POST:
         return HttpResponse(json.dumps({'error':'no post recieved'}))
     else:
-        callback = CallbackForm(request.POST)
-        if callback.is_valid():
-            callback.site = Site.objects.get_current().id
+        form = CallbackForm(request.POST)
+        if form.is_valid():
+            callback = form.save(commit=False)
+            callback.site = Site.objects.get_current()
             callback.save()
             return HttpResponse(json.dumps({}))
         else:
             
-            return HttpResponse(json.dumps({'errors':sanitize(callback.errors)}))
-
-
+            return HttpResponse(json.dumps({'errors':sanitize(form.errors)}))
