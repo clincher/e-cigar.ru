@@ -314,6 +314,11 @@ background-position: -5px 0;
     margin-bottom: 3px;
 }
 
+.content .featured .brief.cigarette {
+    width: 550px;
+    background: url(images/550.png) no-repeat;
+}
+
 .brief .title {
     text-decoration:underline;
     padding:8px;
@@ -404,8 +409,9 @@ background-position: -5px 0;
  
 .brief .buy {
     float: left;
-    position: relative;
-    bottom: 10px;
+    position: absolute;
+    bottom: 40px;
+    left: 165px;
     text-align: center;
     width: 100px;
 }
@@ -604,6 +610,27 @@ textarea {width: 350px;}
 }
 
 .add-info {padding: 10px; color: #3399ff;}
+.brief .add-info {position: absolute; bottom: 0;}
+
+.brief.cigarette .add-info {
+    left: 270px;
+    top: 20px;
+    height: 175px;
+    overflow-y: hidden;
+    color: #999;
+}
+
+.add-info .moreinfo {
+    cursor: pointer;
+    color:#3399ff;
+    position: absolute;
+    bottom: 0;
+    text-align: right;
+    right: 10px;
+    width: 250px;
+    padding: 10px;
+    background: #fff;
+}
 
 .product-parameters {
     width: 100%;

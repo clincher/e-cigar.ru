@@ -1,6 +1,47 @@
-{% extends 'myshop/product_list.html' %}
+{% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block h1 %}Электронные сигареты {{ manufacturer }}{% endblock %}
 {% block title %}купить электронные сигареты {{ manufacturer }}{% endblock %}
 {% block meta-desc %}{{ manufacturer.meta_description }}{% endblock %}
 {% block meta-kw %}{% if manufacturer %}{{ manufacturer.meta_keywords }}{% else %}{{ manufacturer_product_list|join:"," }}{% endif %}{% endblock %}
+
+{% block body %}
+    <div class="featured">
+    {% for product in object_list %}
+        {% if product %}
+        <div class="brief cigarette">
+            <h2 class="title"><a href="{% url product_detail product.slug %}">{{ product }}</a></h2>
+            {% include 'snippets/rating.html' %}
+            <div class="clearfix"></div>
+            <div class="image">
+                {% if product.logo %}
+                    {% thumbnail product.logo.src "150x150" crop="center" as im %}
+                        <img src="{{ im.url }}" alt="{{ product.logo.alt }}">
+                    {% endthumbnail %}
+                {% endif %}
+            </div>
+            <div class="price">
+                {% block extrainfo %}
+                    {% include 'snippets/product_discount.html' %}
+                {% endblock %}
+                <div class="price4now">{{ product.unit_price }} р</div>
+            </div>
+            <div class="buy">
+                <form method="post" action="{% url cart %}">{% csrf_token %}
+                    <input type="hidden" name="add_item_id" value="{{ product.pk }}">
+                    <input type="hidden" name="add_item_quantity" value="1">
+                    <input type="image" src="{{ STATIC_URL }}images/to_buy.jpg">
+                </form>
+            </div>
+            {% autoescape off %}
+            <div class="add-info">
+                {{ product.description }}
+                <div class="moreinfo">Подробнее о {{ product }}</div>
+            </div>
+            {% endautoescape %}
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endblock %}

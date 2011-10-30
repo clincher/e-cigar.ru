@@ -68,6 +68,8 @@ class Cigarette(BaseProduct):
         verbose_name=u'Время полной зарядки аккумулятора', null=True, blank=True)
     color = models.CharField(max_length=20,
                              verbose_name=u'Цвет сигареты', null=True, blank=True)
+    list_description = models.TextField(
+        verbose_name=u'описание на странице списка', null=True, blank=True)
     rating = AnonymousRatingField(range=settings.RATING_RANGE, use_cookies=True)
 
     class Meta:

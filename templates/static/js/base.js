@@ -138,6 +138,9 @@ $(document).ready(function(){
     $(".brief .image").click(function(){
         document.location = $(this).closest(".brief").find("a").first().attr("href");
     });
+    $(".brief.cigarette .add-info").click(function(){
+        document.location = $(this).closest(".brief").find("a").first().attr("href");
+    });
     $(".leftside .ammo").click(function(){
         document.location = $(this).prev("h2").find("a").first().attr("href");
     });
