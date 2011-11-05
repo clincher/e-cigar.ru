@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/feedback.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/callback.css" media="screen"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    {% block extra_head %}{% endblock %}
     <meta name="keywords" content="{% block meta-kw %}{{ object.meta_keywords }}{% endblock %}"/>
     <meta name="description" content="{% block meta-desc %}{{ object.meta_description }}{% endblock %}"/>
 </head>
