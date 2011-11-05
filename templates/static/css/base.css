@@ -354,6 +354,9 @@ background-position: -5px 0;
 .brief .price {
     height: 140px;
     padding: 0 !important;
+    position: absolute;
+    left: 165px;
+    top: 40px;
 }
 
 .old_price {
@@ -630,6 +633,12 @@ textarea {width: 350px;}
     width: 250px;
     padding: 10px;
     background: #fff;
+}
+
+.add-info .moreinfo span {
+    color: red;
+    text-decoration: underline;
+    font-size: 1.1em;
 }
 
 .product-parameters {

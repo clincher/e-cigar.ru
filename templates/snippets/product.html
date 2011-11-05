@@ -2,9 +2,9 @@
 {% if product %}
 <div class="brief">
     <h2 class="title"><a href="{% url product_detail product.slug %}">{{ product }}</a></h2>
-    {% ifnotequal product.rating None %}
-        {% include 'snippets/rating.html' %}
-    {% endifnotequal %}
+{#    {% ifnotequal product.rating None %}#}
+{#        {% include 'snippets/rating.html' %}#}
+{#    {% endifnotequal %}#}
     <div class="clearfix"></div>
     <div class="image">
         {% if product.logo %}

@@ -12,11 +12,11 @@ class BaseProduct(Product, ObjectMixin):
         abstract = True
 
     def images_ordered(self):
-        return self.images.order_by('-id')
+        return self.images.order_by('id')
 
     def logo(self):
         try:
-            return self.images.order_by('-id')[0]
+            return self.images.order_by('id')[0]
         except :
             return None
 
@@ -30,6 +30,8 @@ class BaseProductParameter(ObjectMixin):
     class Meta:
         ordering = ['order',]
         abstract = True
+
+    
 
 
 class BaseProductImage(models.Model):

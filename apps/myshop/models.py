@@ -76,6 +76,7 @@ class Cigarette(BaseProduct):
         app_label = 'myshop'
         verbose_name = u'Сигарета'
         verbose_name_plural = u'Сигареты'
+        ordering = ['manufacturer__order', 'id',]
 
     def __unicode__(self):
         return self.get_full_name()

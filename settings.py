@@ -93,7 +93,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
-#    'apps.myshop.context_processors.manufacturers',
+    'apps.myshop.context_processors.manufacturers',
     'apps.myshop.context_processors.cigarettes',
     'apps.myshop.context_processors.most_popular_product',
     'apps.myshop.context_processors.most_discount_product',
