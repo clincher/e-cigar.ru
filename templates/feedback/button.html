@@ -3,14 +3,14 @@
     <form class="feedback" action="/feedback/ajax{{ request.path }}" method="post">
         {% csrf_token %}
         <div class="name error"></div>
-        <label for="email">Ваш email для обратной связи</label>
-            <input type="text" name="email"/>
+        <label for="feedback_email">Ваш email для обратной связи</label>
+            <input id="feedback_email" type="text" name="email"/>
         <div class="subject error"> </div>
-        <label for="subject">Тема (необязательно)</label>
-            <input type="text" name="subject"/>
+        <label for="feedback_subject">Тема (необязательно)</label>
+            <input id="feedback_subject" type="text" name="subject"/>
         <div class="text error"> </div>
-        <label for="text">Сообщение</label>
-            <textarea name="text"></textarea>
+        <label for="feedback_text">Сообщение</label>
+            <textarea id="feedback_text" name="text"></textarea>
         <div class="buttons">
             <button>Отправить</button>
         </div>

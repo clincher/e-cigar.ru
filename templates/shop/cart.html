@@ -90,8 +90,7 @@
       </table>
     </form>
 
-    <form action="{% url cart_delete %}" method="post">
-      {% csrf_token %}
+    <form action="{% url cart_delete %}">
       <p><input type="submit" value="Очистить корзину"/></p>
     </form>
 

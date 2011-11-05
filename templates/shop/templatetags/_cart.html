@@ -1,4 +1,4 @@
-<h2>Моя корзина</h2>
+<h2><a href="{% url cart %}">Моя корзина</a></h2>
 <p>
     {% if cart.total_quantity %}
     количество товаров: {{ cart.total_quantity }}<br/>
@@ -9,6 +9,9 @@
 </p>
 {% if cart.total_quantity %}
     <a class="go" href="{% url cart %}">Оформить заказ</a>
+    <form action="{% url cart_delete %}">
+      <p><input type="submit" value="Очистить корзину"/></p>
+    </form>
 {% else %}
     <a class="go" href="/kat.html">Выбрать электронную сигарету</a>
 {% endif %}

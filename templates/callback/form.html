@@ -3,11 +3,11 @@
     <form class="callback" action="/callback/ajax{{ request.path }}" method="post">
         {% csrf_token %}
         <div class="username error"> </div>
-        <label for="username">Ваше имя</label>
-            <input type="text" name="username"/>
+        <label for="callback_username">Ваше имя</label>
+            <input id="callback_username" type="text" name="username"/>
         <div class="phone_number error"> </div>
-        <label for="phone_number">Телефон</label>
-            <input type="text" name="phone_number"/>
+        <label for="callback_phone_number">Телефон</label>
+            <input id="callback_phone_number" type="text" name="phone_number"/>
         <div class="buttons">
             <button>Отправить</button>
         </div>
