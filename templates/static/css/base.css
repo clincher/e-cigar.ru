@@ -53,9 +53,10 @@ ul {list-style: none;}
 }
 
 .header .logo {
-position: absolute;
-right: 430px;
-top:9px;
+    position: absolute;
+    right: 430px;
+    top:9px;
+    cursor: pointer;
 }
 
 .header .phone {
@@ -639,6 +640,17 @@ textarea {width: 350px;}
     color: red;
     text-decoration: underline;
     font-size: 1.1em;
+}
+
+.manufacturer-list .moreinfo {
+    text-align: right;
+    padding: 5px;
+}
+.manufacturer-list .moreinfo span {
+    color: #00008b;
+    text-decoration: underline;
+    font-size: 1.2em;
+    cursor: pointer;
 }
 
 .product-parameters {

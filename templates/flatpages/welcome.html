@@ -24,9 +24,12 @@
     {% for manufacturer in manufacturers %}
         <li>
             <div class="img"><img src="{{ MEDIA_URL }}{{ manufacturer.logo }}" alt="{{ manufacturer.name }}"/></div>
-            <h2><a href="{% url manufacturer_product_list manufacturer.slug %}">Электронные сигареты {{ manufacturer.name }}</a></h2>
+            <h2><a href="{% url manufacturer_product_list manufacturer.slug %}">{{ manufacturer.name }}</a></h2>
             {% autoescape off %}
-            <div class="desc">{{ manufacturer.description }}</div>
+            <div class="desc">
+                {{ manufacturer.description }}
+                <div class="moreinfo"><span>Перейти в каталог {{ manufacturer.name }}</span></div>
+            </div>
             {% endautoescape %}
             <div class="clearfix"></div>
         </li>

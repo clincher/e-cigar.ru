@@ -147,6 +147,12 @@ $(document).ready(function(){
     $(".manufacturer-list img").click(function(){
         document.location = $(this).parent("div").next("h2").find("a").first().attr("href");
     });
+    $(".manufacturer-list .desc .moreinfo").click(function(){
+        document.location = $(this).closest("li").children("h2").find("a").first().attr("href");
+    });
+    $(".header .logo").click(function(){
+        document.location = '/';
+    });
 });
 
 reformal_wdg_w    = "713";
