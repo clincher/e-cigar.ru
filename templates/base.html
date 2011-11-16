@@ -51,6 +51,7 @@
                 <img class="ammo" src="{{ STATIC_URL }}images/ammo_pack.png">
                 <h2><a href="{% url accessory_list %}">Аксессуары</a></h2>
                 <img class="ammo" src="{{ STATIC_URL }}images/accessories.png">
+                {% block leftside_banner %}{% endblock %}
             </div>
             <div class="clearfix"></div>
             <div class="footer"></div>
@@ -70,6 +71,7 @@
                 {% block rightside %}
                     {% cart %}
                     {% banner "free_delivery" %}
+                    {% block rightside_banner %}{% endblock %}
                 {% endblock %}
             </div>
             <div class="clearfix"></div>
