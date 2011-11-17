@@ -679,3 +679,11 @@ textarea {width: 350px;}
 }
 
 .manufacturer-list img {cursor: pointer;}
+
+.leftside-banner,
+.rightside-banner {
+    padding: 30px 5px;
+    font-size: 0.85em;
+    background: #ffd;
+    text-align: left;
+}
