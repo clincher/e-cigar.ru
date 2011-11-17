@@ -13,6 +13,6 @@ register = template.Library()
 def banner(slug):
     try:
         banner = Banner.objects.get(slug=slug)
-        return banner.body
+        return '<div class="'+ banner.slug +'">' + banner.body + '</div>'
     except Banner.DoesNotExist:
         return None
