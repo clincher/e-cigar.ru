@@ -28,7 +28,7 @@
             <h2><a href="{% url manufacturer_product_list manufacturer.slug %}">{{ manufacturer.name }}</a></h2>
             {% autoescape off %}
             <div class="desc">
-                {{ manufacturer.description }}
+                {{ manufacturer.description|linesbreaksbr }}
                 <div class="moreinfo"><span>Перейти в каталог {{ manufacturer.name }}</span></div>
             </div>
             {% endautoescape %}
