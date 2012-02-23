@@ -13,6 +13,5 @@
             <i class="price_from">{{ object.unit_price|floatformat:"0"|default:"0" }}р</i> - 
             <a href="{% url product_detail object.slug %}">{{ object.name }}</a>
         </li>
-
     {% endfor %}
 </ul>

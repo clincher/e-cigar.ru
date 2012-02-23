@@ -17,7 +17,7 @@ class BaseProduct(Product, ObjectMixin):
     def logo(self):
         try:
             return self.images.order_by('id')[0]
-        except :
+        except IndexError:
             return None
 
 

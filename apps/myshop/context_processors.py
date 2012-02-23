@@ -14,7 +14,8 @@ def manufacturers(request):
         Manufacturer.objects.annotate(min_price=Min('cigarette__unit_price'))}
 
 def cigarettes(request):
-    return {'cigarettes': Cigarette.objects.all()}
+    return {'cigarettes': Cigarette.objects.select_related(
+        'manufacturer__name')}
 
 def most_popular_product(request):
     OrderItem = load_class(ORDERITEM_MODEL)
@@ -25,19 +26,20 @@ def most_popular_product(request):
             filter(product__polymorphic_ctype=cigarette_contenttype).
             values('product').annotate(count=Count('id')).
             order_by('-count')[0]['product'])
-        most_popular_product = Product.objects.get(pk=most_popular_product_id)
+        most_popular_product = Product.objects.select_related(
+            'manufacturer').get(pk=most_popular_product_id)
     else :
         most_popular_product = None
         
     return {'most_popular_product': most_popular_product}
 
 def most_discount_product(request):
-    if Cigarette.objects.filter(discount__gt='0').exists():
+    try:
         most_discount = Cigarette.objects.filter(
-            discount__gt='0').order_by('-discount')[0]
-    else:
+            discount__gt='0').select_related(
+            'manufacturer__name').order_by('-discount')[0]
+    except IndexError:
         most_discount = None
-
     return {'most_discount_product': most_discount}
 
 def rating_range(request):

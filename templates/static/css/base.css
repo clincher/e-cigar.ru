@@ -179,6 +179,7 @@ float:left;
     position: absolute;
     top: 207px;
     left: 13px;
+    width: 100%;
     background: url(images/menu_bg.png) no-repeat;
 }
 

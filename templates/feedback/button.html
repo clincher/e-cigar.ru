@@ -11,6 +11,9 @@
         <div class="text error"> </div>
         <label for="feedback_text">Сообщение</label>
             <textarea id="feedback_text" name="text"></textarea>
+        <div class="captcha error"></div>
+        <label for="id_captcha_1">Введите буквы с картинки в нижнее поле</label>
+            {{ feedback_form.captcha }}
         <div class="buttons">
             <button>Отправить</button>
         </div>

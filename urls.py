@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^feedback/', include('feedback.urls')),
     (r'^callback/', include('apps.callback.urls')),
+    url(r'^captcha/', include('captcha.urls')),
 
     url(r'^', include('apps.articles.urls')),
     (r'^', include(legacy_urls)),

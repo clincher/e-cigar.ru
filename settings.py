@@ -98,7 +98,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'apps.myshop.context_processors.most_popular_product',
     'apps.myshop.context_processors.most_discount_product',
     'apps.myshop.context_processors.rating_range',
-    'apps.myshop.context_processors.delivery_in_moscow_backend'
+    'apps.myshop.context_processors.delivery_in_moscow_backend',
+    'apps.feedback.context_processors.feedback_form'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -156,8 +157,8 @@ INSTALLED_APPS = [
     'south',
     'sitetree',
     'djangoratings',
-    'feedback',
     'tinymce',
+    'captcha',
 
     # Our own apps
     'apps.common',
@@ -166,6 +167,7 @@ INSTALLED_APPS = [
     'apps.articles',
     'apps.banners',
     'apps.callback',
+    'apps.feedback',
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -198,8 +200,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'custom_undo_redo_levels': 10,
 }
 
-from local_settings import *
-
+#from local_settings import *
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 if DEBUG:
@@ -220,7 +222,7 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = dict(
         INTERCEPT_REDIRECTS = False
     )
-    INSTALLED_APPS += ['debug_toolbar',]
+    INSTALLED_APPS += ['debug_toolbar', 'django_extensions']
     
     STATICFILES_DIRS += (os.path.join(PROJECT_DIR, 'media'),)
 else:

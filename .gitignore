@@ -1,4 +1,6 @@
 *.py[co]
+.idea
+.DS_Store
 media/cache
 local_settings.py
 database.sqlite

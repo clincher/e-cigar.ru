@@ -3,7 +3,7 @@ from django.core.mail.message import EmailMessage
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from feedback.models import Feedback
+from apps.feedback.models import Feedback
 
 
 @receiver(post_save, sender=Feedback)
