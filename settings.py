@@ -199,9 +199,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }
-
-#from local_settings import *
 DEBUG = True
+from local_settings import *
 TEMPLATE_DEBUG = DEBUG
 
 if DEBUG:
