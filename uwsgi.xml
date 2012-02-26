@@ -1,6 +1,6 @@
 <uwsgi>
     <socket>/web/run/ecigar.sock</socket>
-    <process>1</process>
+    <processes>2</processes>
     <master/>
     <uid>web</uid>
     <gid>web</gid>
