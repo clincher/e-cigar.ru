@@ -154,7 +154,11 @@ $(document).ready(function(){
         document.location = '/';
     });
 
-    $(".bannerhome").flash("/media/uploads/ecigar.swf")
+    $(".bannerhome").flash({
+        swf: "/media/uploads/ecigar.swf",
+        width: 548,
+        height: 226
+    });
 });
 
 reformal_wdg_w    = "713";
