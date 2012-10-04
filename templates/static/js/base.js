@@ -153,6 +153,8 @@ $(document).ready(function(){
     $(".header .logo").click(function(){
         document.location = '/';
     });
+
+    $(".bannerhome").flash("/media/uploads/ecigar.swf")
 });
 
 reformal_wdg_w    = "713";
