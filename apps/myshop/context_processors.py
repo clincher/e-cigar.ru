@@ -1,8 +1,8 @@
 from django.conf import settings
-from django.contrib.contenttypes.models import ContentType
+#from django.contrib.contenttypes.models import ContentType
 from django.db.models.aggregates import Count, Min
-from shop.models import ORDERITEM_MODEL, PRODUCT_MODEL
-from shop.util.loader import load_class
+#from shop.models import ORDERITEM_MODEL, PRODUCT_MODEL
+#from shop.util.loader import load_class
 from livesettings import config_value
 
 from apps.myshop.shipping.backends.delivery_in_moscow import \
