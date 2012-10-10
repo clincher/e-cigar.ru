@@ -45,7 +45,7 @@ def cigarettes(request):
 def special_cigarettes(request):
     def get(key):
         try:
-            return Cigarette.objects.get(pk=config_value('shop', key))
+            return Cigarette.objects.get(slug=config_value('shop', key))
         except Cigarette.DoesNotExist:
             return None
     return {
