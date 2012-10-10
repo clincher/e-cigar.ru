@@ -12,10 +12,10 @@ urlpatterns = patterns('',
     (r'^tinymce/', include('tinymce.urls')),
     (r'^grappelli/', include('grappelli.urls')),
     (r'^admin/', include(admin.site.urls)),
+    url(r'^settings/', include('livesettings.urls')),
     (r'^feedback/', include('apps.feedback.urls')),
     (r'^callback/', include('apps.callback.urls')),
     url(r'^captcha/', include('captcha.urls')),
-
     url(r'^', include('apps.articles.urls')),
     (r'^', include(legacy_urls)),
 )

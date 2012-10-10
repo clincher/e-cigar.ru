@@ -10,7 +10,15 @@
 {% endblock %}
 
 {% block content %}
+    {% banner "bannerhome" %}
+    <div class="clearfix"></div>
     <div class="featured">
+        {% with best_male_cigarette as product %}
+            {% include 'snippets/best_male_cigarette.html' %}
+        {% endwith %}
+        {% with best_female_cigarette as product %}
+            {% include 'snippets/best_female_cigarette.html' %}
+        {% endwith %}
         {% with most_discount_product as product %}
             {% include 'snippets/most_discount.html' %}
         {% endwith %}
@@ -18,7 +26,6 @@
             {% include 'snippets/hit_product.html' %}
         {% endwith %}
     </div>
-    {% banner "bannerhome" %}
     <div class="clearfix"></div>
     {% banner "choice_help" %}
     <div class="clearfix"></div>

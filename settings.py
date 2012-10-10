@@ -95,8 +95,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'apps.myshop.context_processors.manufacturers',
     'apps.myshop.context_processors.cigarettes',
-    'apps.myshop.context_processors.most_popular_product',
-    'apps.myshop.context_processors.most_discount_product',
+    'apps.myshop.context_processors.special_cigarettes',
+#    'apps.myshop.context_processors.most_popular_product',
+#    'apps.myshop.context_processors.most_discount_product',
     'apps.myshop.context_processors.rating_range',
     'apps.myshop.context_processors.delivery_in_moscow_backend',
     'apps.feedback.context_processors.feedback_form'
@@ -159,6 +160,7 @@ INSTALLED_APPS = [
     'djangoratings',
     'tinymce',
     'captcha',
+    'livesettings',
 
     # Our own apps
     'apps.common',
@@ -200,7 +202,12 @@ TINYMCE_DEFAULT_CONFIG = {
     'custom_undo_redo_levels': 10,
 }
 DEBUG = True
-from local_settings import *
+
+try:
+    from local_settings import *
+except Exception:
+    pass
+
 TEMPLATE_DEBUG = DEBUG
 
 if DEBUG:

@@ -6,6 +6,7 @@ from djangoratings.fields import AnonymousRatingField
 
 from apps.myshop.base.models import BaseProductParameter, BaseProduct, BaseProductImage
 from signals import confirmed_email_notification
+import config
 
 
 class Manufacturer(BaseProductParameter):
