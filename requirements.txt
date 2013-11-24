@@ -19,3 +19,4 @@ sorl-thumbnail==11.05.2
 wsgiref
 django-keyedcache==1.4-6
 django-livesettings==1.4-11
+django-extensions
