@@ -1,7 +1,7 @@
 Django==1.3.7
 -e git://github.com/clincher/ecigar-django-shop.git#egg=django-shop
 pillow
-django-simple-captcha
+django-simple-captcha==0.4.0
 South==0.7.3
 django-classy-tags==0.3.4.1
 django-debug-toolbar==0.8.5
@@ -10,13 +10,14 @@ django-filebrowser==3.3.0
 django-grappelli==2.3.4
 django-polymorphic==0.2
 django-ratings==0.3.6
-django-shop-simplevariations
+django-shop-simplevariations==0.0.4
 django-sitetree==0.4
 django-tinymce==1.5.1a2
 djangocms-utils==0.9.5
-ipython
+ipython==1.1.0
 sorl-thumbnail==11.05.2
-wsgiref
+wsgiref==0.1.2
 django-keyedcache==1.4-6
 django-livesettings==1.4-11
-django-extensions
+django-extensions==1.2.5
+six==1.4.1
