@@ -7,7 +7,8 @@ from apps.myshop import urls as legacy_urls
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^tinymce/', include('tinymce.urls')),
     (r'^grappelli/', include('grappelli.urls')),
@@ -21,9 +22,11 @@ urlpatterns = patterns('',
 )
 
 if settings.DEBUG:
-    urlpatterns += patterns('django.contrib.staticfiles.views',
+    urlpatterns += patterns(
+        'django.contrib.staticfiles.views',
         url(r'^static/(?P<path>.*)$', 'serve'),
     )
-    urlpatterns += patterns('django.contrib.staticfiles.views',
+    urlpatterns += patterns(
+        'django.contrib.staticfiles.views',
         url(r'^media/(?P<path>.*)$', 'serve'),
     )
